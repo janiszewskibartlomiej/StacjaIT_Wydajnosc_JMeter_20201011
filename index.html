@@ -1,0 +1,1487 @@
+<!DOCTYPE html>
+	<html class="sl-root decks export offline loaded">
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<title>Testy wydajnościowe JMeter - prezentacja 4h (3 ćwiczenia praktyczne) - Stacja IT</title>
+
+
+		<link rel="stylesheet" type="text/css" href="lib/offline-v2.css">
+
+
+
+	</head>
+	<body class="reveal-viewport theme-font-opensans theme-color-white-blue">
+		<div class="reveal">
+			<div class="slides">
+				<section data-id="ecd83123142923ab41ad8cc109ce55d6"><div class="sl-block" data-block-type="text" style="width: 939px; left: 10.5px; top: 126px; height: auto;" data-block-id="397904238936e0a0c054d7ba231f437a"><div class="sl-block-content" data-placeholder-tag="h1" data-placeholder-text="Title Text" style="z-index: 12;">
+<h1 style="color:rgb(0, 0, 0)"><span style="font-size:1.0em">Testy wydajnościowe - JMeter</span></h1>
+</div></div>
+<div class="sl-block" data-block-type="text" style="width: 806px; left: 113px; top: 479px; height: auto;" data-block-id="3a07f8f251a8df8e0ed7aafe655559a8"><div class="sl-block-content" data-placeholder-tag="h2" data-placeholder-text="Subtitle" style="z-index: 13;">
+<h3 style="color:rgb(0, 0, 0)">Tworzenie skryptów i przeprowadzanie testów</h3>
+</div></div>
+<div class="sl-block" data-block-type="image" style="width: 270.979px; height: 199px; left: 67.5px; top: 268px; min-width: 1px; min-height: 1px;" data-name="image-b705b0" data-block-id="f5c316a4441601c0600214678a51eb14"><div class="sl-block-style" style="z-index: 11; opacity: 0.6;"><div class="sl-block-content" style="z-index: 11;"><img data-natural-width="640" data-natural-height="470" style="" data-lazy-loaded="" data-src="testy-wydajnosciowe-jmeter-prezentacja-4h-cwiczenia-praktyczne/20ecd16419c70fbea9cd22bff223b982.png"></div></div></div>
+<div class="sl-block" data-block-type="image" style="width: 403.201px; height: 136.98px; left: 487.8px; top: 320px; min-width: 1px; min-height: 1px;" data-name="image-66ab06" data-block-id="364fb285b453857bafb626cbdd4202ef"><div class="sl-block-style" style="z-index: 10; opacity: 0.6;"><div class="sl-block-content" style="z-index: 10;"><img style="" data-natural-width="521" data-natural-height="177" data-lazy-loaded="" data-src="testy-wydajnosciowe-jmeter-prezentacja-4h-cwiczenia-praktyczne/a7d3e8f0cc56ff38e5ee3f721c3c71b9.png"></div></div></div>
+<div class="sl-block" data-block-type="text" data-name="text-624361" style="height: auto; width: 872px; left: 47px; top: 600.5px;" data-block-id="180688d1a449aff8a839a88cbb3a38b8"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" data-has-custom-html="" style="z-index: 14;">
+<p style="text-align:right"><a href="http://www.linkedin.com/in/klara-trzcinska" target="_blank">Klara Trzcińska</a></p>
+</div></div></section><section class="stack" data-id="892313bc65213090c14781c921521b82"><section data-id="7d66d2a2268221dbdcb78355b0745a86"><div class="sl-block" data-block-type="text" data-name="text-9156c0" style="height: auto; width: 928px; left: 16px; top: 253px;" data-block-id="14be343c305acacf99b60483baaa2477"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" data-has-custom-html="" style="z-index: 10;">
+<h1>Informacje organizacyjne</h1>
+</div></div></section><section data-id="2edeabd6f6d0b28bb4e130abbee4e2c1"><div class="sl-block" data-block-type="text" data-name="text-463be3" style="height: auto; width: 960px; left: 0px; top: 182.5px;" data-block-id="338594abdf4eed3097fdfbcc067ca1ec"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" data-has-custom-html="" style="z-index: 10;">
+<h3>O mnie</h3>
+
+<p>Jestem specjalistką ds. zapewnienia jakości i bezpieczeństwa oprogramowania z doświadczeniem w testach bezpieczeństwa aplikacji webowych oraz infrastruktury, testach wydajnościowych oraz testach technicznych.</p>
+</div></div></section><section data-id="b9df997ad99f3862a751d74d70c7174e"><div class="sl-block" data-block-type="text" data-name="text-8fc1af" style="height: auto; width: 960px; left: 0px; top: 238.5px;" data-block-id="b29166d0c3bdd2e14ab8acd8319b2c0f"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" data-has-custom-html="" style="z-index: 10;">
+<h3>Kwestie organizacyjne</h3>
+
+<ul>
+	<li>Warsztaty trwają 4 godziny: 10:00 - 14:00.</li>
+	<li>Jeśli nikt nie ma nic przeciwko, zwracajmy się na "Ty".</li>
+	<li>Co około 60 minut zrobimy 10-minutową przerwę.</li>
+	<li>Pytania zadawajcie na bieżąco.</li>
+</ul>
+</div></div></section><section data-id="024166360996d3494d2484eb3e13e0ec"><div class="sl-block" data-block-type="text" data-name="text-09166c" style="height: auto; width: 960px; left: 0px; top: 277.5px;" data-block-id="4813323482f388491746e14086ac0bf8"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" data-has-custom-html="" style="z-index: 10;">
+<h3>O was</h3>
+
+<ul>
+	<li>Czym się zajmujesz?</li>
+	<li>Czy masz jakieś doświadczenie w testach wydajnościowych?</li>
+	<li>Czego oczekujesz od szkolenia?</li>
+</ul>
+</div></div></section><section data-id="f78f6a84e639da13404171c77860eeeb"><div class="sl-block" data-block-type="text" data-name="text-cdad78" style="height: auto; width: 936px; left: 12px; top: 102px;" data-block-id="42a20cb35cd212bf72ff399bebe36b16"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" data-has-custom-html="" style="z-index: 10;">
+<h3>Agenda (I)</h3>
+
+<ul>
+	<li>Wprowadzenie</li>
+	<li>Podstawy testów wydajnościowych (testy wydajnościowe, przeciążeniowe, obciążeniowe)</li>
+	<li>Tworzenie planu testów</li>
+	<li>Nagrywanie ruchu i przechwytywanie przez lokalne Proxy</li>
+	<li>Zbieranie wyników wydajności</li>
+	<li>Logowanie asercje, Cookie manager i Cache Manager</li>
+	<li>Asercje</li>
+	<li>Wyrażenia regularne i pobieranie tokenów z żądań HTTP (Regular expression extractor)</li>
+	<li>Parametryzacja testów</li>
+</ul>
+</div></div></section><section data-id="a7e58432f1972ad10fc2117df0bbb68a"><div class="sl-block" data-block-type="text" data-name="text-cdad78" style="height: auto; width: 936px; left: 12px; top: 102px;" data-block-id="2e7b222a50d614c252c313fcae0cefb5"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" data-has-custom-html="" style="z-index: 10;">
+<h3>Agenda (II)</h3>
+
+<ul>
+	<li>Symulowanie rzeczywistych użytkowników poprzez opóźnienia między żądaniami</li>
+	<li>Uruchamianie testów z linii poleceń i raportowanie</li>
+	<li>Distributed Testing</li>
+	<li>Przydatne pluginy</li>
+	<li>Monitorowanie zużycia zasobów na serwerze</li>
+	<li>Skrypty Groovy</li>
+	<li>Skrypty Python</li>
+	<li>Inne narzędzia do testów wydajnościowych na przykładzie Locust</li>
+</ul>
+</div></div></section></section><section data-id="5bf08658ae8b159f907c77d93f2cb7b6" class="stack"><section data-id="b5e2fab509bcea1ced058842ae3eb560"><div class="sl-block" data-block-type="text" data-name="text-aa3aa1" data-block-id="fc46c2a3b2ab5c0ebab05e6efd711369" style="height: auto; width: 960px; left: 0px; top: 315px;"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" data-has-custom-html="">
+<h1>Wprowadzenie</h1>
+</div></div></section><section data-id="442c6353b5a263089ab3e036446f6b30"><div class="sl-block" data-block-type="image" style="width: 806.4px; height: 344.137px; left: 76.8px; top: 177.931px; min-width: 1px; min-height: 1px;" data-name="image-ff3b4d" data-block-id="ededa2fddfb5a2bc4c84df5bd94e2064"><div class="sl-block-content" style="z-index: 10;"><img style="" data-natural-width="1024" data-natural-height="437" data-lazy-loaded="" data-src="testy-wydajnosciowe-jmeter-prezentacja-4h-cwiczenia-praktyczne/c1c835b841bc77f841a81276a2ff6073.png"></div></div></section><section data-id="6ac080d99abe15d54d41c3bb44d97681"><div class="sl-block" data-block-type="text" data-name="text-b014b8" style="height: auto; width: 960px; left: 0px; top: 22.5px;" data-block-id="ea0ae3a0d450c4b7a019c6924f081a8e"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" data-has-custom-html="" style="z-index: 10;">
+<h3>Najpopularniejsze narzędzia do testów wydajnościowych</h3>
+
+<p> </p>
+</div></div>
+<div class="sl-block" data-block-type="iframe" data-name="iframe-6b9c22" style="width: 672px; height: 551px; left: 180.5px; top: 140px;" data-block-id="adab357ab5f0befff66638c4c951e079"><div class="sl-block-content" style="z-index: 11;"><iframe webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen="" sandbox="allow-forms allow-scripts allow-popups allow-same-origin allow-pointer-lock allow-presentation" data-src="https://docs.google.com/forms/d/e/1FAIpQLSd0xvQYw--roUgCF0YGiwy1EA1vWQAtic5ovJhcn5Pcg9KE0A/viewform?embedded=true"></iframe></div></div></section><section data-id="f8b58c84c7f9800cf7d27ddb56673f64"><div class="sl-block" data-block-type="image" data-name="image-c388dd" data-block-id="e11584971bd54c1610cfb7e7a80d291f" style="width: 699px; height: 492.693px; left: 130.5px; top: 70px;"><div class="sl-block-content" style="z-index: 10;"><img data-natural-width="975" data-natural-height="596" style="left: 0px; top: 0px; width: 806px; height: 493px;" data-crop-x="0" data-crop-y="0" data-crop-width="0.867246" data-crop-height="1" data-lazy-loaded="" data-src="testy-wydajnosciowe-jmeter-prezentacja-4h-cwiczenia-praktyczne/9979f5560580d06506d039976f6438c0"></div></div>
+<div class="sl-block" data-block-type="text" data-name="text-001619" data-block-id="c19a9da296e85d38d6f069347f6452b3" style="height: auto; width: 933px; left: 13.5px; top: 581.347px;"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 11;">
+<p>Źródło: <a href="https://techcommunity.microsoft.com/t5/testingspot-blog/what-are-the-best-performance-testing-tools/ba-p/367774" target="_blank">https://techcommunity.microsoft.com/t5/testingspot-blog/what-are-the-best-performance-testing-tools/ba-p/367774</a></p>
+</div></div></section><section data-id="df14b9e312588c3bfcb065819b430f32"><div class="sl-block" data-block-type="text" data-name="text-22bb15" data-block-id="cfc51dea91ec80c9df800be376dd6c66" style="height: auto; width: 960px; left: 0px; top: 99px;"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" data-has-custom-html="">
+<h2>JMeter - wprowadzenie</h2>
+
+<p> </p>
+
+<ul>
+	<li class="fragment fade-right" data-fragment-index="0">Narzędzie bezpłatne - licencja APACHE LICENSE</li>
+	<li class="fragment fade-right" data-fragment-index="1">Zaawansowane narzędzie do testów różnego rodzaju serwerów (HTTP, FTP, JDBC, LDAP, SMTP,POP3,IMAP,SOAP/REST Webservices) pod względem wydajności i poprawności zwracanych wyników.</li>
+	<li class="fragment fade-right" data-fragment-index="2" style='font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400;  font-family: "Open Sans", Helvetica, sans-serif; color: rgb(0, 0, 0);'>Program napisany w Javie dzięki czemu może być wykorzystywany na wielu platformach.</li>
+	<li class="fragment fade-right" data-fragment-index="3" style='font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400;  font-family: "Open Sans", Helvetica, sans-serif; color: rgb(0, 0, 0);'>Pozwala na symulowanie dowolnej liczby użytkowników (możliwość rozdzielenia testów na kilka maszyn - Distributed Testing).</li>
+</ul>
+</div></div></section><section data-id="45eef920b15ed770f3ebf39cdb4e2c37"><div class="sl-block" data-block-type="text" data-name="text-45aec1" data-block-id="60856f96e35f3d97e122b321524ce8df" style="height: auto; width: 960px; left: 0px; top: 165.5px;"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" data-has-custom-html="">
+<h2>Zalety</h2>
+
+<p> </p>
+
+<ul>
+	<li class="fragment fade-right" data-fragment-index="0">intuicyjne GUI,</li>
+	<li class="fragment fade-right" data-fragment-index="1">możliwość gromadzenia różnorodnych statystyk i ich analizy,</li>
+	<li class="fragment fade-right" data-fragment-index="2">możliwość rozszerzenia o własne komponenty,</li>
+	<li class="fragment fade-right" data-fragment-index="3">możliwość dodawania asercji pozwala na znajdowanie błędów.</li>
+</ul>
+</div></div></section><section data-id="49e0fc14162a49df5cbec5c1bfba2c85"><div class="sl-block" data-block-type="text" data-name="text-962452" data-block-id="33fbe9c1b56144a641057ac91bd585ef" style="height: auto; width: 960px; left: 0px; top: 192px;"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" data-has-custom-html="">
+<h2>Wady</h2>
+
+<p> </p>
+
+<ul>
+	<li class="fragment fade-right" data-fragment-index="0">użycie GUI jak i Javy daje narzut na szybkość działania, przez co wyniki mogą być zaburzone,</li>
+	<li class="fragment fade-right" data-fragment-index="1">spore wymagania pamięciowe.</li>
+</ul>
+</div></div></section><section data-id="e0aa70a07d23037619b66885187c0b84"><div class="sl-block" data-block-type="text" data-name="text-8217a8" data-block-id="f42d98e8385f3e4af57a397ce9efd765" style="height: auto; width: 960px; left: 0px; top: 163.5px;"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" data-has-custom-html="">
+<h2>Instalacja</h2>
+
+<p> </p>
+
+<ul>
+	<li class="fragment fade-right" data-fragment-index="0">JMeter jest dostępny do pobrania pod adresem <a href="https://jmeter.apache.org/download_jmeter.cgi" target="_blank">https://jmeter.apache.org/download_jmeter.cgi</a>.</li>
+	<li class="fragment fade-right" data-fragment-index="1">Do prawidłowego działania wymagane jest wcześniejsze zainstalowanie Javy 8 lub 9 (JDK/JRE) i ustawienie zmiennej środowiskowej <em>JAVA_HOME</em>.</li>
+	<li class="fragment fade-right" data-fragment-index="2">Nie jest konieczna instalacja JMetera, wystarczy rozpakować zip.</li>
+</ul>
+</div></div></section><section data-id="895f7926480404651790e6c4f2c9b548"><div class="sl-block" data-block-type="text" data-name="text-9b1e2c" data-block-id="99bb4a51d0afef09b3c7bf0157cb24ba" style="height: auto; width: 960px; left: 0px; top: 140px;"><div class="sl-block-content fragment fade-right" data-placeholder-tag="p" data-placeholder-text="Text" data-has-custom-html="" style="z-index: 10;" data-fragment-index="0">
+<p>Program może być uruchamiany w trybie GUI jak i z linii poleceń - <em>jmeter.bat</em> (lub <em>jmeter.sh</em>) znajdujący się w katalogu <em>bin</em>.</p>
+</div></div>
+<div class="sl-block" data-block-type="text" data-name="text-e88d2c" style="height: auto; width: 643px; left: 271.5px; top: 314px;" data-block-id="f3b432fe0588d693dae663efc3714a8b"><div class="sl-block-content fragment fade-up" data-placeholder-tag="p" data-placeholder-text="Text" data-has-custom-html="" style="z-index: 11;" data-fragment-index="2">
+<p>Po rozpakowaniu dostępne są następujące katalogi:</p>
+
+<ul>
+	<li class="visible">
+<em>bin</em> - folder zawierający skrypty wykonywalne,</li>
+	<li>
+<em>doc</em> i <em>printable_docs</em> - dokumentacja,</li>
+	<li>
+<em>lib</em> - pliki JAR wykorzystywane przez JMeter,</li>
+	<li>
+<em>lib/ext</em> - pliki JAR z pluginami.</li>
+</ul>
+</div></div>
+<div class="sl-block" data-block-type="image" data-name="image-450fde" data-block-id="e45643017f909af32b12d21479a1b650" style="width: 217.18px; height: 246px; left: 36.343px; top: 314px; min-width: 1px; min-height: 1px;"><div class="sl-block-content fragment fade-up" style="z-index: 12;" data-fragment-index="1"><img style="" data-natural-width="211" data-natural-height="239" data-lazy-loaded="" data-src="testy-wydajnosciowe-jmeter-prezentacja-4h-cwiczenia-praktyczne/5bef96a257a452b3d9222d6085a1a855.png"></div></div></section><section data-id="0f0b6ac7cd7b7b200db8e5ce525e60d7"><div class="sl-block" data-block-type="text" data-name="text-9b1e2c" style="height: auto; width: 517px; left: 423px; top: 101px;" data-block-id="d3dffcf28b2cfbed093446271fc64fa2"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" data-has-custom-html="" style="z-index: 10;">
+<p>Pliki JAR z pluginami - katalog lib/ext</p>
+</div></div>
+
+<div class="sl-block" data-block-type="image" data-name="image-33ef9e" data-block-id="178821066c5d0c080870ba14d9820a7f" style="width: 263.39px; height: 518px; left: 125.305px; top: 70px;"><div class="sl-block-content" style="z-index: 11;"><img data-natural-width="360" data-natural-height="708" style="" data-src="testy-wydajnosciowe-jmeter-prezentacja-4h-cwiczenia-praktyczne/c97f022585ecd0b5785853ef59770f42.png"></div></div>
+<div class="sl-block" data-block-type="text" data-name="text-75dac5" data-block-id="e375f60fc529e1a6db1ccc7bdb117b90" style="height: auto; width: 454px; left: 454.5px; top: 182.5px;"><div class="sl-block-content fragment" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 12;" data-fragment-index="0">
+<p>Instalację dodatków ułatwia Plugin Mnager, aby z niego skorzystać należy pobrać <strong><a href="https://jmeter-plugins.org/get/" target="_blank">plugins-manager.jar</a></strong><span style="color:rgb(0, 0, 0)">, u mieścić w katalogu lib/ext i zrestarować jMetera. </span><strong> </strong> </p>
+</div></div>
+<div class="sl-block" data-block-type="image" data-name="image-f92166" data-block-id="8f6806919a7d048b772447f533250175" style="width: 591.399px; height: 206.302px; left: 337.801px; top: 435.349px;"><div class="sl-block-content fragment" style="z-index: 13;" data-fragment-index="1"><img style="" data-natural-width="1333" data-natural-height="465" data-src="testy-wydajnosciowe-jmeter-prezentacja-4h-cwiczenia-praktyczne/7a01dcba98892f9d0901b66f71e81ec9.png"></div></div></section><section data-id="0d4effc1fb2e29ce72816d499aeb9f4b"><div class="sl-block" data-block-type="text" data-name="text-b55db6" data-block-id="246acd9da58d3911bacf721c3e0d7835" style="height: auto; width: 960px; left: 0px; top: 88.5px;"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" data-has-custom-html="" style="z-index: 10;">
+<h2>Tryb GUI</h2>
+</div></div>
+<div class="sl-block" data-block-type="image" style="width: 536.528px; height: 339.962px; left: 23.472px; top: 210px; min-width: 1px; min-height: 1px;" data-name="image-920543" data-block-id="3da5c24159d98551385461d292a8517a"><div class="sl-block-content fragment fade-up" style="z-index: 11;" data-fragment-index="0"><img style="" data-natural-width="1332" data-natural-height="844" data-lazy-loaded="" data-src="testy-wydajnosciowe-jmeter-prezentacja-4h-cwiczenia-praktyczne/6ba26f1a00e5a12cccccb6c1fd1efc89.png"></div></div>
+<div class="sl-block" data-block-type="text" data-name="text-cbb2c5" data-block-id="33d79029315556f1d7101721e4ad963b" style="height: auto; width: 353px; left: 578px; top: 243.481px;"><div class="sl-block-content fragment fade-up" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 12;" data-fragment-index="1">
+<p><span style="font-size:1.0em"><span style="color:rgb(0, 0, 0)">Z trybu GUI korzystamy podczas tworzenia i debugowania skryptów. Testy wydajnościowe uruchamiamy z wykorzystaniem trybu konsolowego.</span></span></p>
+</div></div></section><section data-id="63411f8cfe7454b3e31de1d72b6d4159"><div class="sl-block" data-block-type="text" data-name="text-9e9a9a" data-block-id="31b5cf41e4689b57856cd50ac0e4142a" style="height: auto; width: 960px; left: 0px; top: 140px;"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" data-has-custom-html="" style="z-index: 10;">
+<h2>Tryb konsolowy</h2>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+</div></div>
+<div class="sl-block" data-block-type="code" data-name="code-369c44" data-block-id="99637daf49e15ed16b26f980ff8588af" style="width: 517px; height: 48.5px; left: 221.5px; top: 350px;"><div class="sl-block-content notranslate fragment fade-up" data-highlight-theme="monokai" data-code-frame="none" style="z-index: 11;" data-fragment-index="1"><pre style="font-size: 24px; line-height: 29px;" class="bash"><code data-line-numbers="">jmeter -n -t my_test.jmx -l log.jtl</code></pre></div></div>
+<div class="sl-block" data-block-type="text" data-name="text-de187c" data-block-id="a348248e9932a809178e11f142c8314d" style="height: auto; width: 600px; left: 180px; top: 428.5px;"><div class="sl-block-content fragment fade-up" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 12;" data-fragment-index="2">
+<p style="color:rgb(0, 0, 0)">gdzie flagi oznaczają odpowiednio:</p>
+
+<ul style="color:rgb(0, 0, 0)">
+	<li>n - wywołanie w trybie non-gui,</li>
+	<li>t - nazwa pliku jmx z planem testu,</li>
+	<li>l - nazwa pliku jtl do zapisu logów.</li>
+</ul>
+</div></div>
+<div class="sl-block" data-block-type="text" data-name="text-01accb" data-block-id="a05dded48b5bba12412674ab731fa132" style="height: auto; width: 600px; left: 174px; top: 280px;"><div class="sl-block-content fragment fade-up" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 13;" data-fragment-index="0">
+<p><span style="color:rgb(0, 0, 0)">Wywołanie z linii poleceń ma postać:</span></p>
+</div></div></section><section data-id="0172e9314bb20a018bb86d7d2d35a20c"><div class="sl-block" data-block-type="text" data-name="text-579361" data-block-id="ee67109e30a924b0acbc88b845086039" style="height: auto; width: 960px; left: 0px; top: 598.5px;"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" data-has-custom-html="" style="z-index: 10;"></div></div>
+<div class="sl-block" data-block-type="image" data-name="image-77081d" data-block-id="c34cbd140d5d78a99bc590ab0f62e6d6" style="width: 732.717px; height: 586px; left: 113.642px; top: 57px;"><div class="sl-block-content" style="z-index: 11;"><img style="" data-natural-width="1688" data-natural-height="1350" data-src="testy-wydajnosciowe-jmeter-prezentacja-4h-cwiczenia-praktyczne/70d341cf44d327bb32dc37c8227d3cd8.png"></div></div></section></section><section class="stack" data-id="2cec0ab0e896cd52d542ebf416f05da0"><section data-id="b95fb1c25cb18d188756006391a10001"><div class="sl-block" data-block-type="text" data-name="text-aa3aa1" style="height: auto; width: 960px; left: 0px; top: 253px;" data-block-id="5c0cedeec23b6c248967fd7ecc3250a1"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" data-has-custom-html="" style="z-index: 10;">
+<h1>Podział testów wydajnościowych</h1>
+</div></div></section><section data-id="ae571d6b87b83f94feb7e9a12905a39c"><div class="sl-block" data-block-type="image" data-name="image-57df50" data-block-id="f19ee68d4b5e19c13ff1f26e79f8c27b" style="width: 279.613px; height: 178.472px; left: 40.387px; top: 311.528px;"><div class="sl-block-content" style="z-index: 10;"><img style="" data-natural-width="1280" data-natural-height="817" data-lazy-loaded="" data-src="testy-wydajnosciowe-jmeter-prezentacja-4h-cwiczenia-praktyczne/196af153c7e3f580b53bcee5a6416fe7.png"></div></div>
+<div class="sl-block" data-block-type="text" data-name="text-4b8280" data-block-id="c2951aa51f59a9f2374f156996cb4c8a" style="height: auto; width: 929px; left: 15.5px; top: 37px;"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 11;">
+<h2>Z czego wynikają problemy z wydajnością?</h2>
+</div></div>
+<div class="sl-block" data-block-type="text" data-name="text-32a5b5" data-block-id="c3578e17f20063ef0f319c392c633ff5" style="height: auto; width: 591.33px; left: 329.67px; top: 229px;"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 12;">
+<ul>
+	<li>Niekompresowane obrazy i pliki wideo.</li>
+	<li>Brak wykorzystania CDN.</li>
+	<li>Brak ograniczenia liczby wyświetlanych rekordów.</li>
+	<li>Problemy po stronie bazy danych:
+	<ul>
+		<li>Brak indeksów na bazie,</li>
+		<li>Brak archiwizacji danych,</li>
+		<li>Niewłaściwe użycie operacji wykorzystujących dużo zasobów np. HAVING, GROUP BY</li>
+		<li>Limity połączeń do bazy danych.</li>
+	</ul>
+	</li>
+</ul>
+</div></div></section><section data-id="3a1cae3ec395d3a50902565654346f0f"><div class="sl-block" data-block-type="text" data-name="text-22bb15" style="height: auto; width: 960px; left: 0px; top: 210px;" data-block-id="0234fc077e07227875aa29d69d451596">
+    <div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" data-has-custom-html="" style="z-index: 10;">
+        <h2>Testy wydajnościowe</h2>
+
+        <p> </p>
+
+        <ul>
+            <li class="fragment fade-right" data-fragment-index="0"><span>Sprawdzają czas odpowiedzi poszczególnych funkcji, zgodność z wymaganiami np. czas odpowiedzi nie więcej niż 3 sekundy.</span></li>
+        </ul>
+    </div>
+</div></section><section data-id="e5439a73d94f08d5bc93d63cccb3b4ad"><div class="sl-block" data-block-type="text" data-name="text-22bb15" style="height: auto; width: 960px; left: 0px; top: 210px;" data-block-id="b7b0af72bf1a70b3206f06bdc86d5e97">
+    <div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" data-has-custom-html="" style="z-index: 10;">
+        <h2>Testy przeciążeniowe</h2>
+
+        <p> </p>
+
+        <ul>
+            <li class="fragment fade-right" data-fragment-index="0">
+                <p><span style="font-size:1.0em;">Zasymulowanie ponadprzeciętnej liczby użytkowników, działających równolegle, przekroczenie możliwości serwera<font color="#444444" face="Roboto, Verdana, sans-serif">.</font></span></p>
+            </li>
+            <li class="fragment" data-fragment-index="1">
+                <p><span style="font-size:1.0em;"><span>Sprawdzenie czy nie doszło do utraty danych, wycieków pamięci.</span></span></p>
+            </li>
+        </ul>
+    </div>
+</div></section><section data-id="87f4b2f10a00f2e16edfcf6ee2045410"><div class="sl-block" data-block-type="text" data-name="text-22bb15" style="height: auto; width: 960px; left: 0px; top: 210px;" data-block-id="6349dd603a79c89379894bc3411039d6">
+    <div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" data-has-custom-html="" style="z-index: 10;">
+        <h2>Testy przeciążeniowe</h2>
+
+        <p> </p>
+
+        <ul>
+            <li class="fragment fade-right" data-fragment-index="0">
+                <p><span>Przesyłanie bardzo dużej liczby transakcji przez użytkowników działających w tym samym czasie przez dłuższy czas. </span></p>
+            </li>
+            <li class="fragment" data-fragment-index="1">
+                <p><span>Testy określają jak wiele zapytań jest w stanie obsłużyć system w danym przedziale czasu.</span></p>
+            </li>
+        </ul>
+    </div>
+</div></section></section><section data-id="94ca9e3458770c2644a9636f0d560950" class="stack"><section data-id="ab1f5a4aa8bcff482d3d508e844a3784"><div class="sl-block" data-block-type="text" data-name="text-3363e1" data-block-id="84a9401bf5c81cd2538b5af47ae5b73f" style="height: auto; width: 960px; left: 0px; top: 313px;"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" data-has-custom-html="">
+<h1>Tworzenie planu testów</h1>
+</div></div></section><section data-id="4982f5e1cdba9ddd7edc26f7eef00a4f"><div class="sl-block" data-block-type="text" data-name="text-579c30" data-block-id="983a59f0aa3078da572ee848e0acda92" style="height: auto; width: 960px; left: 0px; top: 251.5px;">
+    <div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" data-has-custom-html="" style="z-index: 10;">
+        <p>Plan testów ma strukturę hierarchiczną. W GUI przedstawiany jest jako graf, którego najważniejszymi węzłami są:</p>
+
+        <p> </p>
+
+        <ul>
+            <li class="fragment" data-fragment-index="0">
+                <b>Thread Group</b> - grupa wątków (użytkowników),</li>
+            <li class="fragment" data-fragment-index="1">
+                <b>Sampler</b> - element wysyłający zapytania do serwera (FTP Request, HTTP Request, JDBC Request),</li>
+        </ul>
+    </div>
+</div>
+<div class="sl-block" data-block-type="text" data-name="text-44bce4" data-block-id="141cf5b4fdda482885dcc930b8bde60e" style="height: auto; width: 853px; left: 53.5px; top: 117px;">
+    <div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 11;">
+        <h2>Podstawowe elementy testu</h2>
+    </div>
+</div></section><section data-id="e0912b0236807db4d924036d81fa25c8"><div class="sl-block" data-block-type="text" data-name="text-140af3" data-block-id="b3edfa77c3da0a7415041589ec7027e6" style="height: auto; width: 960px; left: 0px; top: 232px;"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" data-has-custom-html="" style="z-index: 10;">
+					<ul>
+						<li class="fragment" data-fragment-index="0">
+<b>Logic Controller</b> - sterują przebiegiem testu np. If Controller, którego zawartość będzie wykonana gdy warunek jest spełniony, czy Once Only Controller, którego zawartość będzie wykonana tylko w pierwszej iteracji testu,</li> 
+						<li class="fragment" data-fragment-index="1">
+<b>Assertion</b> - sprawdzenie poprawności zwracanych danych np. zgodności z wyrażeniem regularnym,</li>
+					</ul>
+					</div></div>
+<div class="sl-block" data-block-type="text" data-name="text-44bce4" style="height: auto; width: 853px; left: 53.5px; top: 117px;" data-block-id="59a28ac014289274048b0d8e800ad246"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 11;">
+<h2>Podstawowe elementy testu</h2>
+</div></div></section><section data-id="59532817e906dfc5d97ca8c37b0ebd6e"><div class="sl-block" data-block-type="text" data-name="text-a695e4" data-block-id="8715680ad5a002e6575ceeb1a767614c" style="height: auto; width: 960px; left: 0px; top: 271px;"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" data-has-custom-html="" style="z-index: 10;">
+					<ul>
+						<li class="fragment" data-fragment-index="0">
+<b>Configuration Element</b> - zebraniu ustawień konfiguracyjnych np. obsługa plików cookie, czy uwierzytelniania typu HTTP,</li>
+						<li class="fragment" data-fragment-index="1">
+<b>Timers</b> - pozwala opóźnić lub zsynchronizować operacje, ułatwia symulowanie rzeczywistych użytkowników,</li>
+					</ul>
+					</div></div>
+<div class="sl-block" data-block-type="text" data-name="text-44bce4" style="height: auto; width: 853px; left: 53.5px; top: 117px;" data-block-id="9fa557da7153aee0283561a0091062d4"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 11;">
+<h2>Podstawowe elementy testu</h2>
+</div></div></section><section data-id="6b049c892dfb7fc9a75dafd717d2043d"><div class="sl-block" data-block-type="text" data-name="text-18b93e" data-block-id="72481ee34df2ea05ca361f3bbe2d8805" style="height: auto; width: 960px; left: 0px; top: 232px;"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" data-has-custom-html="" style="z-index: 10;">
+					<ul>
+						<li class="fragment" data-fragment-index="0">
+<b>Listeners</b> - zbieranie, wyświetlanie wyników i generowanie statystyk np. View Results Tree, View Results in Table, Dane zagregowane, Summary Report,</li>
+						<li class="fragment" data-fragment-index="1">
+<b>Pre-Processor Elements</b> - pozwalają wykonać akcję przed wykonaniem zapytania np. Sample Timeout, czy parser linków HTML,</li>
+					</ul>
+					</div></div>
+<div class="sl-block" data-block-type="text" data-name="text-44bce4" style="height: auto; width: 853px; left: 53.5px; top: 117px;" data-block-id="bd43571268a6d1689cf97e0d9ea1ea86"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 11;">
+<h2>Podstawowe elementy testu</h2>
+</div></div></section><section data-id="549a7f95dfce13019c05529697abafe1"><div class="sl-block" data-block-type="text" data-name="text-f45ab9" data-block-id="29cc4548354bf3992b1941af57294baf" style="height: auto; width: 960px; left: 0px; top: 291px;"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" data-has-custom-html="" style="z-index: 10;">
+					<ul>
+						<li class="fragment" data-fragment-index="0">
+<b>Post-Processor Elements</b> - pozwalają wykonać akcję po wykonaniu zapytania, użyteczne w przypadku pobierania parametrów z odpowiedzi na żądanie.</li>
+					</ul>
+					</div></div>
+<div class="sl-block" data-block-type="text" data-name="text-44bce4" style="height: auto; width: 853px; left: 53.5px; top: 117px;" data-block-id="7096b2ece92656402e3940ec9af4d653"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 11;">
+<h2>Podstawowe elementy testu</h2>
+</div></div></section><section data-id="e01bfa1ab8a1542397690dfdd90c8ca0" data-visibility="hidden"><div class="sl-block" data-block-type="text" data-name="text-632e72" data-block-id="243de5ba802774ee3d0851a43f88260e" style="height: auto; width: 960px; left: 0px; top: 127.5px;"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" data-has-custom-html="" style="z-index: 10;">
+<h2>Najważniejsze elementy JMetera</h2>
+</div></div>
+<div class="sl-block" data-block-type="text" data-name="text-ed4d0c" data-block-id="c9728396304d2ea117dbc4bb7404ac8d" style="height: auto; width: 600px; left: 180px; top: 591px;"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 11;">
+<p><span style="color:rgb(0, 0, 0)">Źródło: www.guru99.com</span></p>
+</div></div>
+<div class="sl-block" data-block-type="image" style="width: 806.4px; height: 315.17px; left: 76.8px; top: 244.83px; min-width: 1px; min-height: 1px;" data-name="image-f5cc77" data-block-id="e4cc3c1807ed2da5088d1048ad6cd38b"><div class="sl-block-content" style="z-index: 12;"><img style="" data-natural-width="742" data-natural-height="290" data-lazy-loaded="" data-src="testy-wydajnosciowe-jmeter-prezentacja-4h-cwiczenia-praktyczne/e1bc89d4606642186d08382d918fcdb9.png"></div></div></section><section data-id="3b81758ee1466d580b799b09c7a509da"><div class="sl-block" data-block-type="text" data-name="text-5fd921" data-block-id="22fb75a9a4ae331a15402a91e9726817" style="height: auto; width: 960px; left: 0px; top: 147px;">
+<div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" data-has-custom-html="" style="z-index: 10;">
+<h2>
+<span id="cke_bm_1596S" style="display: none;"> </span>Hierarchiczna struktura testu<span id="cke_bm_1596E" style="display: none;"> </span>
+</h2>
+</div>
+<p></p>
+</div>
+<div class="sl-block" data-block-type="image" style="width: 502.905px; height: 361px; left: 228.547px; top: 263px; min-width: 1px; min-height: 1px;" data-name="image-9db56f" data-block-id="5db226ff88f62e6af6f4b0dc522e6e9f"><div class="sl-block-content" style="z-index: 11;"><img style="" data-natural-width="645" data-natural-height="463" data-lazy-loaded="" data-src="testy-wydajnosciowe-jmeter-prezentacja-4h-cwiczenia-praktyczne/0a91688ea490913e9d2ef4b3d871f01b.png"></div></div></section><section data-id="ce279e083ac2d24c32d3ba2bdf541f3b"><div class="sl-block" data-block-type="text" data-name="text-1abe1f" data-block-id="c70775cb10edca7bee4312417102a6a3" style="height: auto; width: 960px; left: 0px; top: 166px;"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" data-has-custom-html="">
+<h2>Hierarchiczna struktura testu</h2>
+
+<p> </p>
+
+<p><img alt="Hierarchiczna struktura testu" data-lazy-loaded="" height="300" data-src="testy-wydajnosciowe-jmeter-prezentacja-4h-cwiczenia-praktyczne/1cbc249d41322b447144ad1cbcc1fc78.png"></p>
+</div></div></section><section data-id="aa04d2ec3b31aec6e1fdbfea738afd81"><div class="sl-block" data-block-type="text" data-name="text-a9f6f5" data-block-id="39e2d60d62484d6f44dc10437c4c2526" style="height: auto; width: 960px; left: 0px; top: 216px;"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" data-has-custom-html="">
+<h2>Hierarchiczna struktura testu</h2>
+
+<p> </p>
+
+<p><img alt="Hierarchiczna struktura testu" data-lazy-loaded="" height="200" data-src="testy-wydajnosciowe-jmeter-prezentacja-4h-cwiczenia-praktyczne/d8f318f8da9e88bd3eea34c49c5b28c8.png"></p>
+</div></div></section><section data-id="49a59c943aee19ee90ee6f7d065ea943"><div class="sl-block" data-block-type="text" data-name="text-f3fac5" data-block-id="64d93e128edea571ea2b59ea596de400" style="height: auto; width: 960px; left: 0px; top: 194px;"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" data-has-custom-html="">
+						<h3>Przykład praktyczny - stworzenie prostego testu strony głównej aplikacji</h3>
+							<ul>
+								<li><p>Utworzenie nowej grupy wątków: Plan testów -&gt; Dodaj -&gt; Threads (Users) -&gt; Grupa wątków</p></li>
+								<li><p>Ustawienie liczby wątków oraz czasu w jakim zostaną uruchomione wszystkie wątki.</p></li>
+								<li><p>Ustawienie liczby powtórzeń.</p></li>
+							</ul>
+					</div></div></section><section data-id="b9719cec1cd928ed030ea6f18a1a2170"><div class="sl-block" data-block-type="text" data-name="text-0a3ab2" data-block-id="cf7ac1ba7f7bafac7558c9d05eb0c44a" style="height: auto; width: 960px; left: 0px; top: 99px;">
+<div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" data-has-custom-html="" style="z-index: 10;">
+<h2>
+<span id="cke_bm_1642S" style="display: none;"> </span>Grupa wątków Threads (Users)<span id="cke_bm_1642E" style="display: none;"> </span>
+</h2>
+</div>
+<p></p>
+</div>
+<div class="sl-block" data-block-type="image" style="width: 806.4px; height: 445.686px; left: 89.8px; top: 197.157px; min-width: 1px; min-height: 1px;" data-name="image-e8b376" data-block-id="b8f33dd0331f1bf845d8d684df94af45"><div class="sl-block-content" style="z-index: 11;"><img style="" data-natural-width="968" data-natural-height="535" data-lazy-loaded="" data-src="testy-wydajnosciowe-jmeter-prezentacja-4h-cwiczenia-praktyczne/fd855340f165ffe902d954f9fdd0e2a4.png"></div></div></section><section data-id="50f533cdf43e37761d3a810c8f559c1f"><div class="sl-block" data-block-type="text" data-name="text-c0ef34" data-block-id="4f869c8c361474cc77ee6bbd41bcdcc0" style="height: auto; width: 960px; left: 0px; top: 219px;"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" data-has-custom-html="">
+						<h3>Tworzenie planu testów</h3>
+							<ul>
+								<li><p>Stworzenie listy zadań dla grupy wątków - zadanie w postaci wysłania żądania do strony głównej aplikacji. Potrzebny element wysyłający zapytanie do serwera: Grupa wątków -&gt; Dodaj -&gt; Sampler -&gt; HTTP Request.</p></li>
+								<li><p>Podanie nazwy lub IP serwera, numeru portu oraz ścieżki.</p></li>
+							</ul>
+					</div></div></section><section data-id="5551ee3e1f3356b53de18bd18b47f189"><div class="sl-block" data-block-type="text" data-name="text-6db52a" data-block-id="63f0b36166826604b62e562d48819c13" style="height: auto; width: 960px; left: 0px; top: 219px;"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" data-has-custom-html="">
+						<h3>Tworzenie planu testów</h3>
+							<ul>
+								<li><p>Wybranie metody HTTP (np. GET, POST), protokołu (domyślnie http).</p></li>
+								<li><p>Aby zobaczyć wyniki testu np. odpowiedź na żądanie należy dodać jeden ze słuchaczy: Grupa wątków -&gt; HTTP Request -&gt; Dodaj -&gt; Słuchacze -&gt; View Result Tree.</p></li>
+							</ul>
+					</div></div></section></section><section class="stack" data-id="e4c0770ea482859dcac2bb06d0512b05"><section data-id="0c8dc5be88d60e38298c06710996b2d1"><div class="sl-block" data-block-type="text" data-name="text-9769c7" style="height: auto; width: 960px; left: 0px; top: 239px;" data-block-id="8f92921664b9288451af54b83c6d783a"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" data-has-custom-html="" style="z-index: 10;">
+<h1>Narzędzia deweloperskie przeglądarki</h1>
+</div></div></section><section data-id="50a7600f847cd070341f378c720f4ccc"><div class="sl-block" data-block-type="text" style="width: 806px; left: 77px; top: 70px; height: auto;" data-block-id="b246f7caf9cce55de0d47686772f79cb"><div class="sl-block-content" data-placeholder-tag="h2" data-placeholder-text="Title Text" style="z-index: 10;">
+<h3>Uruchomienie narzędzi deweloperskich przez skróty klawiszowe</h3>
+</div></div>
+<div class="sl-block" data-block-type="text" style="width: 806px; left: 96px; top: 467.5px; height: auto;" data-block-id="268c10314f1aa771f77ffc09345410ed"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 11;">
+<ul>
+	<li class="fragment" data-fragment-index="0">Chrome i Firefox:<em> Ctrl + Shift + I</em>
+</li>
+	<li class="fragment" data-fragment-index="1">Internet Explorer i Edge: <em>F12</em>
+</li>
+	<li class="fragment" data-fragment-index="2">Mac: <em>Cmd + Option + I</em>
+</li>
+</ul>
+</div></div>
+<div class="sl-block" data-block-type="image" data-name="image-cbf6fb" style="width: 870.88px; height: 226.86px; left: 44.56px; top: 210px; min-width: 1px; min-height: 1px;" data-block-id="a23353c23ab11eed317eaa6b7c99f9b1"><div class="sl-block-content" style="z-index: 12;"><img style="left: 0px; top: -389px; width: 871px; height: 616px;" data-natural-width="1083" data-natural-height="766" data-lazy-loaded="" data-crop-x="0" data-crop-y="0.631702" data-crop-width="1" data-crop-height="0.368298" data-src="testy-wydajnosciowe-jmeter-prezentacja-4h-cwiczenia-praktyczne/836db042e3d0d79b2edbd371f638264f.png"></div></div>
+<div class="sl-block" data-block-type="text" data-name="text-4ecffd" style="height: auto; width: 939px; left: 10.5px; top: 612px;" data-block-id="bde43c04e482689fde3ca19e9609dbd7"><div class="sl-block-content fragment" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 13;" data-fragment-index="3">
+<p><span style="text-align:left">Firefox - ponowne przeslanie żądania: Sieć -&gt; Edytuj i wyślij ponownie</span></p>
+</div></div></section></section><section data-id="a96f21ee7f3783ade5e65684c7aff1c7" class="stack"><section data-id="027eb7001223dc76d05eb714e9a24763"><div class="sl-block" data-block-type="text" data-name="text-2ecd3a" data-block-id="05effd193a4eefc1dd5762492d3babf4" style="height: auto; width: 960px; left: 0px; top: 239px;"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" data-has-custom-html="">
+<h1>Nagrywanie ruchu i przechwytywanie przez lokalne Proxy</h1>
+</div></div></section><section data-id="800b914b4f8e8703ae4fcb94516ba20f"><div class="sl-block" data-block-type="text" data-name="text-eb9f25" style="height: auto; width: 960px; left: 0px; top: 131px;" data-block-id="29982409f0e7b26bd0e68e9e095d0140"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" data-has-custom-html="" style="z-index: 10;">
+<h2>Narzędzia typu lokalnego Proxy</h2>
+
+<ul>
+	<li>
+	<p>Proxy jest zainstalowane na komputerze testującego.</p>
+	</li>
+	<li>
+	<p>Przeglądarka łączy się z Proxy, a następnie Proxy łączy się z żądaną stroną internetową.</p>
+	</li>
+	<li>
+	<p>Dzięki takiemu połączeniu możliwe jest przechwytywanie oraz zmiana danych wysyłanych pomiędzy przeglądarką, a serwerem.</p>
+	</li>
+</ul>
+</div></div>
+<div class="sl-block" data-block-type="image" style="width: 141.862px; height: 144px; left: 760.276px; top: 488px; min-width: 1px; min-height: 1px;" data-name="image-d71daf" data-block-id="ff4c551e6f36bfac2617ddf06031ffd6"><div class="sl-block-content" style="z-index: 11;"><img style="" data-natural-width="1261" data-natural-height="1280" data-lazy-loaded="" data-src="testy-wydajnosciowe-jmeter-prezentacja-4h-cwiczenia-praktyczne/fbffc702b786a4158c7a29d5b0f66cd7.png"></div></div>
+<div class="sl-block" data-block-type="image" style="width: 88px; height: 88px; left: 406px; top: 523px; min-width: 1px; min-height: 1px;" data-name="image-84a698" data-block-id="95220001b2ce2f2a1bcb4b0d489f0a8c"><div class="sl-block-content" style="z-index: 12;"><img data-natural-width="280" data-natural-height="280" style="" data-lazy-loaded="" data-src="testy-wydajnosciowe-jmeter-prezentacja-4h-cwiczenia-praktyczne/3a949ead04f6626556fd115917107568.png"></div></div>
+<div class="sl-block" data-block-type="image" style="width: 143px; height: 143px; left: 60.5px; top: 474px; min-width: 1px; min-height: 1px;" data-name="image-758f0d" data-block-id="3f1ca6a78d8c1628d8cbe0bc3501add9"><div class="sl-block-content" style="z-index: 13;"><img style="" data-natural-width="1350" data-natural-height="1350" data-lazy-loaded="" data-src="testy-wydajnosciowe-jmeter-prezentacja-4h-cwiczenia-praktyczne/eae4a5a51eebb3064119025c51c3ad2c.png"></div></div>
+<div class="sl-block" data-block-type="line" data-name="line-1be730" style="width: auto; height: auto; left: 249px; top: 531px;" data-block-id="ae823bb5a56c9e10fcbbc51d7f67fbeb"><div class="sl-block-content" data-line-x1="0" data-line-y1="0" data-line-x2="142" data-line-y2="0" data-line-color="#ffffff" data-line-start-type="none" data-line-end-type="line-arrow" style="z-index: 14; transition-duration: 0.6s; transition-delay: 0.6s;" data-line-width="3px" data-line-style="dashed" data-animation-type="fade-in"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" preserveaspectratio="xMidYMid" width="142" height="1" viewbox="0 0 142 1"><line stroke="rgba(0,0,0,0)" stroke-width="15" x1="0.5" y1="0.5" x2="140.25" y2="0.5"></line><line class="line-element" stroke="#ffffff" stroke-width="3" stroke-dasharray="8.3125 8.3125" x1="0.5" y1="0.5" x2="140.25" y2="0.5"></line><path style="fill: rgba(0,0,0,0);" stroke="#ffffff" stroke-width="3" transform="translate(139.75,0) rotate(90)" d="M 6.75 6.75 L 0 0 L -6.75 6.75"></path></svg></div></div>
+<div class="sl-block" data-block-type="line" style="width: auto; height: auto; left: 249px; top: 583px;" data-name="line-f36786" data-block-id="56dbf6b84407af40b44349128cb15990"><div class="sl-block-content" data-line-x1="0" data-line-y1="0" data-line-x2="142" data-line-y2="0" data-line-color="#ffffff" data-line-start-type="line-arrow" data-line-end-type="none" style="z-index: 15; transition-duration: 0.6s; transition-delay: 2.4s;" data-line-width="3px" data-line-style="dashed" data-animation-type="fade-in"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" preserveaspectratio="xMidYMid" width="142" height="1" viewbox="0 0 142 1"><line stroke="rgba(0,0,0,0)" stroke-width="15" x1="2.75" y1="0.5" x2="142.5" y2="0.5"></line><line class="line-element" stroke="#ffffff" stroke-width="3" stroke-dasharray="8.3125 8.3125" x1="2.75" y1="0.5" x2="142.5" y2="0.5"></line><path style="fill: rgba(0,0,0,0);" stroke="#ffffff" stroke-width="3" transform="translate(2.25,0) rotate(90)" d="M -6.75 -6.75 L 0 0 L 6.75 -6.75"></path></svg></div></div>
+<div class="sl-block" data-block-type="line" style="width: auto; height: auto; left: 578px; top: 531px;" data-name="line-a89e8f" data-block-id="747bb2a62a2dfecb686971a418cbed9b"><div class="sl-block-content" data-line-x1="0" data-line-y1="0" data-line-x2="142" data-line-y2="0" data-line-color="#ffffff" data-line-start-type="none" data-line-end-type="line-arrow" style="z-index: 16; transition-duration: 0.6s; transition-delay: 1.2s;" data-line-width="3px" data-line-style="dashed" data-animation-type="fade-in"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" preserveaspectratio="xMidYMid" width="142" height="1" viewbox="0 0 142 1"><line stroke="rgba(0,0,0,0)" stroke-width="15" x1="0.5" y1="0.5" x2="140.25" y2="0.5"></line><line class="line-element" stroke="#ffffff" stroke-width="3" stroke-dasharray="8.3125 8.3125" x1="0.5" y1="0.5" x2="140.25" y2="0.5"></line><path style="fill: rgba(0,0,0,0);" stroke="#ffffff" stroke-width="3" transform="translate(139.75,0) rotate(90)" d="M 6.75 6.75 L 0 0 L -6.75 6.75"></path></svg></div></div>
+<div class="sl-block" data-block-type="line" style="width: auto; height: auto; left: 578px; top: 582px;" data-name="line-3473f0" data-block-id="e197dd2b20270bd3b08edd697f7354f9"><div class="sl-block-content" data-line-x1="0" data-line-y1="0" data-line-x2="142" data-line-y2="0" data-line-color="#ffffff" data-line-start-type="line-arrow" data-line-end-type="none" style="z-index: 17; transition-duration: 0.6s; transition-delay: 1.8s;" data-line-width="3px" data-line-style="dashed" data-animation-type="fade-in"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" preserveaspectratio="xMidYMid" width="142" height="1" viewbox="0 0 142 1"><line stroke="rgba(0,0,0,0)" stroke-width="15" x1="2.75" y1="0.5" x2="142.5" y2="0.5"></line><line class="line-element" stroke="#ffffff" stroke-width="3" stroke-dasharray="8.3125 8.3125" x1="2.75" y1="0.5" x2="142.5" y2="0.5"></line><path style="fill: rgba(0,0,0,0);" stroke="#ffffff" stroke-width="3" transform="translate(2.25,0) rotate(90)" d="M -6.75 -6.75 L 0 0 L 6.75 -6.75"></path></svg></div></div>
+<div class="sl-block" data-block-type="image" style="width: 141.862px; height: 144px; left: 760.276px; top: 488px; min-width: 1px; min-height: 1px;" data-block-id="ee754961268ad6c3716bcdc73e01451e" data-name="image-794681"><div class="sl-block-content" style="z-index: 18;"><img style="" data-natural-width="1261" data-natural-height="1280" data-lazy-loaded="" data-src="testy-wydajnosciowe-jmeter-prezentacja-4h-cwiczenia-praktyczne/fbffc702b786a4158c7a29d5b0f66cd7.png"></div></div>
+<div class="sl-block" data-block-type="image" style="width: 152px; height: 51.6392px; left: 443px; top: 508.361px; min-width: 1px; min-height: 1px;" data-block-id="bccd8805c9e86a2819a1427f6b43e3cb" data-name="image-cbcd7e"><div class="sl-block-content" style="z-index: 19;"><img data-natural-width="521" data-natural-height="177" style="" data-lazy-loaded="" data-src="testy-wydajnosciowe-jmeter-prezentacja-4h-cwiczenia-praktyczne/a7d3e8f0cc56ff38e5ee3f721c3c71b9.png"></div></div>
+<div class="sl-block" data-block-type="image" style="width: 143px; height: 143px; left: 60.5px; top: 474px; min-width: 1px; min-height: 1px;" data-block-id="586225c9c571d00faeb460e12bb334dc" data-name="image-3bc5b7"><div class="sl-block-content" style="z-index: 20;"><img style="" data-natural-width="1350" data-natural-height="1350" data-lazy-loaded="" data-src="testy-wydajnosciowe-jmeter-prezentacja-4h-cwiczenia-praktyczne/eae4a5a51eebb3064119025c51c3ad2c.png"></div></div>
+<div class="sl-block" data-block-type="line" style="width: auto; height: auto; min-width: 0px; min-height: 0px; left: 249px; top: 531px;" data-block-id="0211d53855f4ebe972c61febf02b6dfa" data-name="line-8931c3"><div class="sl-block-content" data-line-x1="0" data-line-y1="0" data-line-x2="142" data-line-y2="0" data-line-color="#000000" data-line-start-type="none" data-line-end-type="line-arrow" style="z-index: 21; transition-duration: 0.6s; transition-delay: 0.6s;" data-line-width="3px" data-line-style="dashed" data-animation-type="fade-in"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" preserveaspectratio="xMidYMid" width="142" height="1" viewbox="0 0 142 1"><line stroke="rgba(0,0,0,0)" stroke-width="15" x1="0.5" y1="0.5" x2="140.25" y2="0.5"></line><line class="line-element" stroke="#000000" stroke-width="3" stroke-dasharray="8.3125 8.3125" x1="0.5" y1="0.5" x2="140.25" y2="0.5"></line><path style="fill: rgba(0,0,0,0);" stroke="#000000" stroke-width="3" transform="translate(139.75,0) rotate(90)" d="M 6.75 6.75 L 0 0 L -6.75 6.75"></path></svg></div></div>
+<div class="sl-block" data-block-type="line" style="width: auto; height: auto; min-width: 0px; min-height: 0px; left: 249px; top: 583px;" data-block-id="76a64ffb8afcd707101ebd159dabf969" data-name="line-0378ec"><div class="sl-block-content" data-line-x1="0" data-line-y1="0" data-line-x2="142" data-line-y2="0" data-line-color="#000000" data-line-start-type="line-arrow" data-line-end-type="none" style="z-index: 22; transition-duration: 0.6s; transition-delay: 2.4s;" data-line-width="3px" data-line-style="dashed" data-animation-type="fade-in"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" preserveaspectratio="xMidYMid" width="142" height="1" viewbox="0 0 142 1"><line stroke="rgba(0,0,0,0)" stroke-width="15" x1="2.75" y1="0.5" x2="142.5" y2="0.5"></line><line class="line-element" stroke="#000000" stroke-width="3" stroke-dasharray="8.3125 8.3125" x1="2.75" y1="0.5" x2="142.5" y2="0.5"></line><path style="fill: rgba(0,0,0,0);" stroke="#000000" stroke-width="3" transform="translate(2.25,0) rotate(90)" d="M -6.75 -6.75 L 0 0 L 6.75 -6.75"></path></svg></div></div>
+<div class="sl-block" data-block-type="line" style="width: auto; height: auto; min-width: 0px; min-height: 0px; left: 578px; top: 531px;" data-block-id="aa0f812f60927f495a0c32d4a5d356ef" data-name="line-6c7c9d"><div class="sl-block-content" data-line-x1="0" data-line-y1="0" data-line-x2="142" data-line-y2="0" data-line-color="#000000" data-line-start-type="none" data-line-end-type="line-arrow" style="z-index: 23; transition-duration: 0.6s; transition-delay: 1.2s;" data-line-width="3px" data-line-style="dashed" data-animation-type="fade-in"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" preserveaspectratio="xMidYMid" width="142" height="1" viewbox="0 0 142 1"><line stroke="rgba(0,0,0,0)" stroke-width="15" x1="0.5" y1="0.5" x2="140.25" y2="0.5"></line><line class="line-element" stroke="#000000" stroke-width="3" stroke-dasharray="8.3125 8.3125" x1="0.5" y1="0.5" x2="140.25" y2="0.5"></line><path style="fill: rgba(0,0,0,0);" stroke="#000000" stroke-width="3" transform="translate(139.75,0) rotate(90)" d="M 6.75 6.75 L 0 0 L -6.75 6.75"></path></svg></div></div>
+<div class="sl-block" data-block-type="line" style="width: auto; height: auto; min-width: 0px; min-height: 0px; left: 578px; top: 582px;" data-block-id="6212683ddab05b13a8380fd3ec380e39" data-name="line-23df01"><div class="sl-block-content" data-line-x1="0" data-line-y1="0" data-line-x2="142" data-line-y2="0" data-line-color="#000000" data-line-start-type="line-arrow" data-line-end-type="none" style="z-index: 24; transition-duration: 0.6s; transition-delay: 1.8s;" data-line-width="3px" data-line-style="dashed" data-animation-type="fade-in"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" preserveaspectratio="xMidYMid" width="142" height="1" viewbox="0 0 142 1"><line stroke="rgba(0,0,0,0)" stroke-width="15" x1="2.75" y1="0.5" x2="142.5" y2="0.5"></line><line class="line-element" stroke="#000000" stroke-width="3" stroke-dasharray="8.3125 8.3125" x1="2.75" y1="0.5" x2="142.5" y2="0.5"></line><path style="fill: rgba(0,0,0,0);" stroke="#000000" stroke-width="3" transform="translate(2.25,0) rotate(90)" d="M -6.75 -6.75 L 0 0 L 6.75 -6.75"></path></svg></div></div>
+<div class="sl-block" data-block-type="image" data-name="image-ab949d" data-block-id="5fbc58c17484f67d025c3188c65355ed" style="width: 81px; height: 81px; left: 485.5px; top: 551px;"><div class="sl-block-content" style="z-index: 25;"><img style="" data-natural-width="225" data-natural-height="225" data-lazy-loaded="" data-src="testy-wydajnosciowe-jmeter-prezentacja-4h-cwiczenia-praktyczne/eed706f8aa4bc21eb5792d79974943a4.png"></div></div></section><section data-id="1c2c186ccfefd7cbe7e41e552a84a4ab"><div class="sl-block" data-block-type="text" data-name="text-79542d" data-block-id="32a9fe15bc85e4e58d99a2ad6dbe8424" style="height: auto; width: 960px; left: 0px; top: 148px;"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" data-has-custom-html="" style="z-index: 10;">
+<h2>Nagrywanie skryptu</h2>
+</div></div>
+<div class="sl-block" data-block-type="image" data-name="image-080e7f" data-block-id="0a2455200c771ef02f265e95af607200" style="width: 300.134px; height: 222px; left: 339.866px; top: 247px; min-width: 1px; min-height: 1px;"><div class="sl-block-content fragment" style="z-index: 11;" data-fragment-index="0"><img style="" data-natural-width="242" data-natural-height="179" data-lazy-loaded="" data-src="testy-wydajnosciowe-jmeter-prezentacja-4h-cwiczenia-praktyczne/55158eea18c7490d32c74778b7df4274.png"></div></div>
+<div class="sl-block" data-block-type="image" data-name="image-9d9b2f" data-block-id="b7633a18a144f03a1cf8a940eb3895f8" style="width: 666.415px; height: 128.537px; left: 172px; top: 507.463px; min-width: 1px; min-height: 1px;"><div class="sl-block-content fragment" style="z-index: 12;" data-fragment-index="1"><img data-natural-width="1011" data-natural-height="195" style="" data-lazy-loaded="" data-src="testy-wydajnosciowe-jmeter-prezentacja-4h-cwiczenia-praktyczne/04dd370036d994fa361212e6f88a36eb.png"></div></div></section><section data-id="d9ed6f2ac2ffddc67a1e8bb8dcf62ec3"><div class="sl-block" data-block-type="text" data-name="text-88cb50" style="height: auto; width: 960px; left: 0px; top: 29px;" data-block-id="1a5fe7a7cd4454b46c782817410205d3"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" data-has-custom-html="" style="z-index: 10;">
+<h2>Instalacja certyfikatu JMeter - Firefox</h2>
+
+<p> </p>
+
+<p> </p>
+</div></div>
+<div class="sl-block" data-block-type="text" data-name="text-1fc392" style="height: auto; width: 847.627px; left: 56.1865px; top: 560px;" data-block-id="625886cb22306e1f632fff236b9e2f05"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 11;">
+<p><span style="color:#000000">Podczas importu certyfikatu należy zaznaczyć opcję <em>Trust this CA to identify web sites</em></span></p>
+</div></div>
+
+<div class="sl-block" data-block-type="image" style="width: 403.2px; height: 241.92px; left: 480px; top: 288.991px; min-width: 1px; min-height: 1px;" data-name="image-3c76a2" data-block-id="d7cf08945c7c3585b9e3c1c221c350b2"><div class="sl-block-content" style="z-index: 13;"><img data-natural-width="500" data-natural-height="300" style="" data-lazy-loaded="" data-src="testy-wydajnosciowe-jmeter-prezentacja-4h-cwiczenia-praktyczne/5952e48338b85e065ee0eb85387b88b3.png"></div></div>
+<div class="sl-block" data-block-type="image" data-name="image-1df8ef" style="width: 542.105px; height: 221.523px; left: 71px; top: 198.477px; min-width: 1px; min-height: 1px;" data-block-id="cd334860c55b7a441d1afce2fbec13a4"><div class="sl-block-content" style="z-index: 12;"><img data-natural-width="996" data-natural-height="407" style="" data-lazy-loaded="" data-src="testy-wydajnosciowe-jmeter-prezentacja-4h-cwiczenia-praktyczne/5101a6969fa4c71ce4aef018c72c2f52.png"></div></div></section><section data-id="4c8fab42419c1e6fb09046a685c00b27"><div class="sl-block" data-block-type="text" data-name="text-88cb50" style="height: auto; width: 960px; left: 0px; top: 29px;" data-block-id="97a64e70cce8e643a2f3126c6c9131a3"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" data-has-custom-html="" style="z-index: 10;">
+<h2>Nagrywanie skryptu - wyłączenie przechwytywania CSS i JS</h2>
+
+<p> </p>
+
+<p> </p>
+</div></div>
+<div class="sl-block" data-block-type="text" data-name="text-1fc392" style="height: auto; width: 847.627px; left: 56.1865px; top: 560px;" data-block-id="932d87b84ffd5a18c38fd5dd00c919c2"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 11;">
+<p>(?i).*\.(bmp|css|js|gif|ico|jpe?g|png|swf|woff|woff2)</p>
+</div></div>
+
+<div class="sl-block" data-block-type="image" data-name="image-5a057a" data-block-id="b53187d16f6d03b988c702ac52a8cdd2" style="width: 806.4px; height: 233.09px; left: 76.8px; top: 233.455px;"><div class="sl-block-content" style="z-index: 12;"><img data-natural-width="1242" data-natural-height="359" style="" data-lazy-loaded="" data-src="testy-wydajnosciowe-jmeter-prezentacja-4h-cwiczenia-praktyczne/2270f25f160ed6a3950d4e620253bd77.png"></div></div></section><section data-id="8de988aca28b6910f33652d137ef5a4c"><div class="sl-block" data-block-type="text" data-name="text-acadd6" style="height: auto; width: 960px; left: 0px; top: 57.5px;" data-block-id="e77e7f1894816859ca3fcf908904dee5"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" data-has-custom-html="" style="z-index: 10;">
+<h2>Instalacja certyfikatu JMeter - inne przeglądarki</h2>
+
+<p> </p>
+
+<p> </p>
+</div></div>
+<div class="sl-block" data-block-type="text" data-name="text-4a0ca4" style="height: auto; width: 934.892px; left: 12.554px; top: 516.121px;" data-block-id="9c2a088fb7c974f243d30e76baa069f5"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 11;">
+<p><em>"The Chrome browser picks up the certificate trust store from your host computer. By installing CA certificate in your computer’s built-in browser (e.g. Internet Explorer on Windows, or Safari on OS X), Chrome will automatically make use of the certificate."</em></p>
+</div></div>
+<div class="sl-block" data-block-type="image" style="width: 345.18px; height: 298.121px; left: 307.41px; top: 218px; min-width: 1px; min-height: 1px;" data-name="image-f686d8" data-block-id="f9800feea8e7fe747aea43d7d28d8bf0"><div class="sl-block-content" style="z-index: 12;"><img data-natural-width="1022" data-natural-height="639" style="left: -271px; top: -288px; width: 938px; height: 586px;" data-lazy-loaded="" data-crop-x="0.288981" data-crop-y="0.491694" data-crop-width="0.367983" data-crop-height="0.508306" data-src="testy-wydajnosciowe-jmeter-prezentacja-4h-cwiczenia-praktyczne/fa20e025028020870267c2894af705a6.png"></div></div></section></section><section data-id="c635c8fee9dc576ddb591edadbc28b87"><div class="sl-block" data-block-type="text" data-name="text-9ca9ea" data-block-id="9d367a0647de9d3eae8ababf26ceaf84" style="height: auto; width: 903px; left: 24px; top: 124.5px;"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" data-has-custom-html="">
+<h2>Ćwiczenie 1</h2>
+
+<p style="text-align: left;">Przygotowanie skryptu do testów wydajnościowych na stronie <a href="http://automationpractice.com" target="_blank">http://automationpractice.com</a>. Skrypt ma obejmować następujące operacje:</p>
+
+<ul>
+	<li>
+	<p>Wejście na stronę główną.</p>
+	</li>
+	<li>
+	<p>Przejście do strony logowania.</p>
+	</li>
+	<li>
+	<p>Zalogowanie do aplikacji, do logowania można użyć następującego konta - login: o12557375@nwytg.net hasło: warsztaty%6.</p>
+	</li>
+	<li>
+	<p>Wyświetlenie informacji o koncie - zakładka personal information.</p>
+	</li>
+</ul>
+</div></div></section><section data-id="e8b9daa6bcbe55aece242642a16468ec" class="stack"><section data-id="a19b2ef816db0e818c7a76b91cfe6e83"><div class="sl-block" data-block-type="text" style="width: 806px; left: 77px; top: 266px; height: auto;" data-block-id="1493a52d459944eec65fedbbaf724801"><div class="sl-block-content" data-placeholder-tag="h1" data-placeholder-text="Title Text" style="z-index: 10;">
+<h1>Zbieranie wyników wydajności</h1>
+</div></div></section><section data-id="9474bae8b84fb869b510b68a8f7d67fa"><div class="sl-block" data-block-type="text" data-name="text-e6ebb5" data-block-id="b58b10172cdc03657e05c2aef4b5d2aa" style="height: auto; width: 960px; left: 0px; top: 132.5px;"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" data-has-custom-html="">
+<h2>Listeners</h2>
+
+<p> </p>
+
+<ul>
+	<li class="fragment" data-fragment-index="0">
+	<p><b>Simple Data Writer</b> - zapisanie wyników testu do pliku w formacie CSV lub XML, możliwość wyboru zapisywanych elementów.</p>
+	</li>
+	<li class="fragment" data-fragment-index="1">
+	<p><b>Graph Results</b> - wykres czasu odpowiedzi na żądania.</p>
+	</li>
+	<li class="fragment" data-fragment-index="2">
+	<p><b>View Result Tree</b> - wyświetla treść żądania i zwróconą odpowiedź, czas odpowiedzi, kod odpowiedzi, parsuje różne formaty m.in. HTML, XML, PDF.</p>
+	</li>
+</ul>
+</div></div></section><section data-id="4d949ddafea1e617802a9fef0555184b"><div class="sl-block" data-block-type="text" data-name="text-05c21f" data-block-id="6d05d45df1a7868e1ea51561c3574593" style="height: auto; width: 960px; left: 0px; top: 187.5px;"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" data-has-custom-html="">
+<h2>Listeners</h2>
+
+<p> </p>
+
+<ul>
+	<li class="fragment" data-fragment-index="0">
+	<p><b>Aggregate Report</b> - tabela statystyk dla każdego wysłanego żądania.</p>
+	</li>
+	<li class="fragment" data-fragment-index="1">
+	<p><b>View Results in Table</b> - tabela wyników dla każdej próbki, jeden wiersz odpowiada jednej próbce.</p>
+	</li>
+	<li class="fragment" data-fragment-index="2">
+	<p><b>Summary Report</b> - podobny do Aggregate Report.</p>
+	</li>
+</ul>
+</div></div></section><section data-id="0d8d1ca73f3a2e2da7e5f69beeba2cc3"><div class="sl-block" data-block-type="text" data-name="text-0cbac2" data-block-id="1ef2d1de64de1ab16378d61ee5b39bb8" style="height: auto; width: 960px; left: 0px; top: 140px;"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" data-has-custom-html="">
+<h2>Simple Data Writer</h2>
+
+<p> </p>
+
+<ul>
+	<li class="fragment" data-fragment-index="0">
+	<p>Zapisanie wyników testu do pliku.</p>
+	</li>
+	<li class="fragment" data-fragment-index="1">
+	<p>Możliwe formaty to XML lub CSV, zapis do CSV jest bardziej efektywnym rozwiązaniem, ale jest mniej szczegółowy niż XML.</p>
+	</li>
+	<li class="fragment" data-fragment-index="2">
+	<p>Ścieżkę do pliku można podać albo jako ścieżkę bezwzględną albo ścieżkę względną. Ścieżka względna odnosi się do aktualnego katalogu, domyślnie “bin/”. Jeśli ścieżka zaczyna się od “~/” odnosi się do katalogu w którym został zapisany plan testów (plik JMX).</p>
+	</li>
+</ul>
+</div></div></section><section data-id="90b43d12e8b67907cbe1ae9fbe2062f8"><div class="sl-block" data-block-type="text" data-name="text-7737a9" data-block-id="a6fbb11bed3d008e591d78940b1d77c8" style="height: auto; width: 960px; left: 0px; top: 110px;"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" data-has-custom-html="" style="z-index: 10;">
+<h2>Simple Data Writer</h2>
+
+<p> </p>
+
+<p>Możliwość wybrania elementów do zapisu. Dane takie jak pliki cookie, metoda i zapytanie zapisywane są jako część opcji "Sampler Data".</p>
+</div></div>
+<div class="sl-block" data-block-type="image" style="width: 549.625px; height: 262.752px; left: 240px; top: 375.248px; min-width: 1px; min-height: 1px;" data-name="image-47407d" data-block-id="66bb23c575456973b0824c92fe5e84ae"><div class="sl-block-content fragment fade-up" style="z-index: 11;" data-fragment-index="0"><img style="" data-natural-width="638" data-natural-height="305" data-lazy-loaded="" data-src="testy-wydajnosciowe-jmeter-prezentacja-4h-cwiczenia-praktyczne/bd9cce0baa8ba4ae129b8c81aab7a8c6.png"></div></div></section><section data-id="184f1cb9e26d41f7d87a40ec41ec1e24"><div class="sl-block" data-block-type="text" data-name="text-eaf864" data-block-id="6137c3d49b276d7184d53ac9cbf4ddc6" style="height: auto; width: 960px; left: 0px; top: 121.5px;"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" data-has-custom-html="">
+<h2>Graph Result</h2>
+
+<p> </p>
+
+<ul>
+	<li class="fragment" data-fragment-index="0">
+	<p>Generuje prosty wykres czasu dla wszystkich żądań (sample times).</p>
+	</li>
+	<li class="fragment" data-fragment-index="1">
+	<p>Czas reprezentowany w milisekundach.</p>
+	</li>
+	<li class="fragment" data-fragment-index="2">
+	<p>Punkty na wykresie odpowiadają:</p>
+
+	<ul>
+		<li>
+		<p>czarny - czas odpowiedzi dla próby,</p>
+		</li>
+		<li>
+		<p>czerwony - aktualne odchylenie standardowe,</p>
+		</li>
+		<li>
+		<p>zielony - aktualna przepustowość.</p>
+		</li>
+	</ul>
+	</li>
+</ul>
+</div></div></section><section data-id="d5bc92ca781c94f5b75a3a69c3cd100d"><div class="sl-block" data-block-type="text" data-name="text-176c29" data-block-id="da219dccc2152c6b8490e93840492787" style="height: auto; width: 960px; left: 0px; top: 210px;"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" data-has-custom-html="">
+<h2>Graph Result</h2>
+
+<p> </p>
+
+<ul>
+	<li class="fragment" data-fragment-index="0">
+	<p>Nie powinien być wykorzystywany podczas właściwego testu ponieważ zużywa dużo pamięci i CPU, raczej podczas testu funkcjonalnego czy etapu debugowania planu testu.</p>
+	</li>
+</ul>
+</div></div></section><section data-id="f30abf446dec788f09f053df9d9b195a"><div class="sl-block" data-block-type="text" data-name="text-6c8988" data-block-id="cb7ef49d71889ecdc55f7eb5bbc5ccf0" style="height: auto; width: 960px; left: 0px; top: 140px;"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" data-has-custom-html="">
+<h2>Graph Result</h2>
+
+<p> </p>
+
+<p><small><strong>Przepustowość</strong> odpowiada liczbie obsłużonych żądań na minutę.<br>
+Obejmuje opóźnienia dodane do planu testów, zgodnie z dokumentacją “This calculation includes any delays you added to your test and JMeter's own internal processing time. The advantage of doing the calculation like this is that this number represents something real - your server in fact handled that many requests per minute, and you can increase the number of threads and/or decrease the delays to discover your server's maximum throughput”.<br>
+<b>Throughput = (number of requests) / (total time)</b></small></p>
+</div></div></section><section data-id="bd68e40d7041328572a386a06b070e27"><div class="sl-block" data-block-type="text" data-name="text-df4b69" data-block-id="b5c2937af5e7e65cd25dce0265f8558b" style="height: auto; width: 887px; left: 27px; top: 70px;"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" data-has-custom-html="" style="z-index: 10;">
+<h2>Graph Result</h2>
+</div></div>
+<div class="sl-block" data-block-type="text" data-name="text-5e5ca1" data-block-id="b2366ca87229e632735ebfb3d8aae491" style="height: auto; width: 942px; left: 9.0005px; top: 554px;"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 12; background-color: rgb(255, 255, 255); transition-duration: 0.6s; transition-delay: 1.6s;" data-animation-type="fade-in">
+<p><span style="color:rgb(0, 0, 0)"> </span><span style="font-size:0.9em"><em>Data - plot the actual data values, Average - plot the Average, Median - plot the Median (midway value), Deviation - plot the Standard Deviation (a measure of the variation), Throughput - plot the number of samples per unit of time</em></span></p>
+</div></div>
+<div class="sl-block" data-block-type="image" style="width: 458.477px; height: 343px; left: 250.762px; top: 188px; min-width: 1px; min-height: 1px;" data-name="image-3af008" data-block-id="96ef20686c64f9f868d645e4453534a6"><div class="sl-block-content" style="z-index: 11;"><img style="" data-natural-width="802" data-natural-height="600" data-lazy-loaded="" data-src="testy-wydajnosciowe-jmeter-prezentacja-4h-cwiczenia-praktyczne/e50a3eeec244e3570e7ff90d88b77ad3.png"></div></div></section><section data-id="6f6bc49f675fb78f647b4e7d6fc93a01"><div class="sl-block" data-block-type="text" data-name="text-fdb1fa" data-block-id="5645300ff31f133f2a4db0f71a18da22" style="height: auto; width: 960px; left: 0px; top: 148.5px;"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" data-has-custom-html="">
+<h2>View Result Tree</h2>
+
+<p> </p>
+
+<ul>
+	<li class="fragment" data-fragment-index="0">
+	<p>Wyświetla treść żądania i zwróconą odpowiedź, czas odpowiedzi i kod odpowiedzi.</p>
+	</li>
+	<li class="fragment" data-fragment-index="1">
+	<p>Parsuje różne formaty m.in. HTML, XML, PDF.</p>
+	</li>
+	<li class="fragment" data-fragment-index="2">
+	<p>Posiada funkcję wyszukiwania w treści odpowiedzi.</p>
+	</li>
+	<li class="fragment" data-fragment-index="3">
+	<p>Umożliwia przeszukiwanie odpowiedzi wyrażeniem regularnym i znalezienie dopasowanego do niego tekstu.</p>
+	</li>
+</ul>
+</div></div></section><section data-id="4bc9a64746707385d357fa8ad92f465c"><div class="sl-block" data-block-type="text" data-name="text-4b726c" data-block-id="f4e3485d78377e6fe415c70592adf4c7" style="height: auto; width: 960px; left: 0px; top: 87px;">
+<div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" data-has-custom-html="" style="z-index: 10;">
+<h2>
+<span id="cke_bm_2254S" style="display: none;"> </span>View Result Tree<span id="cke_bm_2254E" style="display: none;"> </span>
+</h2>
+</div>
+<p></p>
+</div>
+<div class="sl-block" data-block-type="image" style="width: 637.553px; height: 461px; left: 161.224px; top: 189.5px; min-width: 1px; min-height: 1px;" data-name="image-5c3e42" data-block-id="e57e26c1c83910e78080663da72d8382"><div class="sl-block-content" style="z-index: 11;"><img style="" data-natural-width="780" data-natural-height="564" data-lazy-loaded="" data-src="testy-wydajnosciowe-jmeter-prezentacja-4h-cwiczenia-praktyczne/17e86b486cf50e5fda7f8391ff066225.png"></div></div></section><section data-id="f00fbedb0c562598b7290a2756cc8ce4"><div class="sl-block" data-block-type="text" data-name="text-c29b90" data-block-id="d5a900ddedc97545cddca16fc8779151" style="height: auto; width: 960px; left: 0px; top: 164.5px;"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" data-has-custom-html="">
+<h2>Aggregate Report</h2>
+
+<p> </p>
+
+<ul>
+	<li class="fragment" data-fragment-index="0">
+	<p>Tabela statystyk dla każdego żądania o danej etykiecie.</p>
+	</li>
+	<li class="fragment" data-fragment-index="1">
+	<p>Kolumny w generowanej tabeli odpowiadają:</p>
+
+	<ul>
+		<li>
+		<p>Label - The label of the sample,</p>
+		</li>
+		<li>
+		<p># Samples - The number of samples with the same label,</p>
+		</li>
+		<li>
+		<p>Average - The average time of a set of results,</p>
+		</li>
+	</ul>
+	</li>
+</ul>
+</div></div></section><section data-id="3e92416c0fa59edc712bea5d214ab361"><div class="sl-block" data-block-type="text" data-name="text-de34dd" data-block-id="c987ba61c6a5c0d83d44c1619ccc2e1f" style="height: auto; width: 960px; left: 0px; top: 133.5px;">
+<div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" data-has-custom-html="" dir="ui">
+<h2>Aggregate Report</h2>
+
+<p>​</p>
+
+<ul>
+	<li class="fragment" data-fragment-index="0">Median - The median is the time in the middle of a set of results. 50% of the samples took no more than this time; the remainder took at least as long,</li>
+	<li class="fragment" data-fragment-index="1">90% Line - 90% of the samples took no more than this time. The remaining samples took at least as long as this (90th percentile),</li>
+	<li class="fragment" data-fragment-index="2">95% Line - 95% of the samples took no more than this time. The remaining samples took at least as long as this (95th percentile),</li>
+</ul>
+</div>
+<grammarly-extension style="position: absolute; top: 0px; left: 0px; pointer-events: none; z-index: auto;" class="_1KJtL"></grammarly-extension>
+</div></section><section data-id="dafa2692559e54d239c299de0894878d"><div class="sl-block" data-block-type="text" data-name="text-3cac7b" data-block-id="f1b0984f8b3e3137603ed2423964d473" style="height: auto; width: 960px; left: 0px; top: 192px;"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" data-has-custom-html="">
+<h2>Aggregate Report</h2>
+
+<p> </p>
+
+<ul>
+	<li class="fragment" data-fragment-index="0">99% Line - 99% of the samples took no more than this time. The remaining samples took at least as long as this (99th percentile),</li>
+	<li class="fragment" data-fragment-index="1">Min - The shortest time for the samples with the same label,</li>
+	<li class="fragment" data-fragment-index="2">Max - The longest time for the samples with the same label,</li>
+	<li class="fragment" data-fragment-index="3">Error % - Percent of requests with errors,</li>
+</ul>
+</div></div></section><section data-id="eb373875d1988e89a7face277a4c8e9c"><div class="sl-block" data-block-type="text" data-name="text-d769e9" data-block-id="4b4b2dc0bc026455ab56f12954d04319" style="height: auto; width: 960px; left: 0px; top: 150.5px;"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" data-has-custom-html="">
+<h2>Aggregate Report</h2>
+
+<p> </p>
+
+<ul>
+	<li class="fragment" data-fragment-index="0">Throughput - the Throughput is measured in requests per second/minute/hour. The time unit is chosen so that the displayed rate is at least 1.0. When the throughput is saved to a CSV file, it is expressed in requests/second, i.e. 30.0 requests/minute is saved as 0.5,</li>
+	<li class="fragment" data-fragment-index="1">Received KB/sec - The throughput measured in received Kilobytes per second,</li>
+</ul>
+</div></div></section><section data-id="f1f5896c731b41685627fbdaf4df95e1"><div class="sl-block" data-block-type="text" data-name="text-1e2b47" data-block-id="b1f5d9e70cc3500d7a19f775caab184d" style="height: auto; width: 960px; left: 0px; top: 187.5px;"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" data-has-custom-html="">
+<h2>Aggregate Report</h2>
+
+<p> </p>
+
+<ul>
+	<li class="fragment" data-fragment-index="0">Sent KB/sec - The throughput measured in sent Kilobytes per second,</li>
+	<li class="fragment" data-fragment-index="1">95% Line - 95% of the samples took no more than this time. The remaining samples took at least as long as this (95th percentile),</li>
+</ul>
+</div></div></section><section data-id="3b6d503fb7c23da03036f2548d73088b"><div class="sl-block" data-block-type="text" data-name="text-be93b0" data-block-id="7f0ef0aca13b7e8ce88bb484de546cb1" style="height: auto; width: 960px; left: 0px; top: 87px;">
+<div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" data-has-custom-html="" style="z-index: 10;">
+<h2>
+<span id="cke_bm_2345S" style="display: none;"> </span>Aggregate Report<span id="cke_bm_2345E" style="display: none;"> </span>
+</h2>
+</div>
+<p></p>
+</div>
+<div class="sl-block" data-block-type="image" style="width: 806.4px; height: 335.874px; left: 76.8px; top: 210px; min-width: 1px; min-height: 1px;" data-name="image-cd6c07" data-block-id="e0d89941a9eba11bc5cafba3b866b9f8"><div class="sl-block-content" style="z-index: 11;"><img style="" data-natural-width="1066" data-natural-height="444" data-lazy-loaded="" data-src="testy-wydajnosciowe-jmeter-prezentacja-4h-cwiczenia-praktyczne/7541262528d25a79d668b62f6611c194.png"></div></div></section><section data-id="1036226a3ff70285e820abe5723a4d04"><div class="sl-block" data-block-type="text" data-name="text-3ef919" data-block-id="2c89fde97ef6375f87d54df498aa562d" style="height: auto; width: 960px; left: 0px; top: 211px;"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" data-has-custom-html="">
+<h2>View Results in Table</h2>
+
+<p> </p>
+
+<ul>
+	<li>
+	<p>Tabela wyników dla każdej próbki (żądania).</p>
+	</li>
+	<li>
+	<p>Wyniki dla każdego żądania w nowym wierszu.</p>
+	</li>
+	<li>
+	<p>Typ zbierania wyników obciążający pamięć.</p>
+	</li>
+</ul>
+</div></div></section><section data-id="854592e76733979eedc72a515c0b99f7"><div class="sl-block" data-block-type="text" data-name="text-76255d" data-block-id="8a6137925e9ca531b4a6e8ee2cd74f63" style="height: auto; width: 960px; left: 0px; top: 165px;"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" data-has-custom-html="">
+<h2>Summary Report</h2>
+
+<p> </p>
+
+<ul>
+	<li>
+	<p>Tabela statystyk dla każdego żądania o danej etykiecie.</p>
+	</li>
+	<li>
+	<p><strong>Zbliżony do Aggregate Report, ale mniej obciążający pamięć, przez co bardziej zalecany do zbierania wyników.</strong></p>
+	</li>
+	<li>
+	<p>Kolumny Etykieta, Liczba próbek, Średnia, Min, Max, Odchylenie standardowe, % błędów, przepustowość, KB/sek, Sent KB/sec, bitów średnio.</p>
+	</li>
+</ul>
+</div></div></section><section data-id="72f0c10236c140675efee1e574276f36"><div class="sl-block" data-block-type="image" data-name="image-f86ccd" data-block-id="db95c9c43392a7dff3cdb2671bdf6192" style="width: 761.46px; height: 518px; left: 99.27px; top: 152px; min-width: 1px; min-height: 1px;"><div class="sl-block-content" style="z-index: 10;"><img data-natural-width="735" data-natural-height="500" style="" data-lazy-loaded="" data-src="testy-wydajnosciowe-jmeter-prezentacja-4h-cwiczenia-praktyczne/dd40eab69133720346a8e6196239c627.png"></div></div>
+<div class="sl-block" data-block-type="text" data-name="text-1d27c8" data-block-id="96fe64c9e0a0d033471f5027db1f1dd1" style="height: auto; width: 752px; left: 104px; top: 47.5px;"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 11;">
+<h2>Active Threads Over Time</h2>
+</div></div></section></section><section class="stack" data-id="d20e25d9e53dee64d999eb6caaa1fdd4"><section data-id="2408ddcf7abe0e0ce58239042a231d51"><div class="sl-block" data-block-type="text" style="width: 806px; left: 77px; top: 266px; height: auto;" data-block-id="43498a666c57d2aea8c0cdc8b32b037b"><div class="sl-block-content" data-placeholder-tag="h1" data-placeholder-text="Title Text" style="z-index: 10;">
+<h1>Pluginy</h1>
+</div></div></section><section data-id="2c6eaa669ed9711042fb8d4725a43413"><div class="sl-block" data-block-type="image" data-name="image-a27b2d" data-block-id="ae903f41b3a29e172041e9cbc307b00e" style="width: 806.4px; height: 330.316px; left: 76.8px; top: 184.842px; min-width: 1px; min-height: 1px;"><div class="sl-block-content" style="z-index: 10;"><img data-natural-width="1206" data-natural-height="494" style="" data-lazy-loaded="" data-src="testy-wydajnosciowe-jmeter-prezentacja-4h-cwiczenia-praktyczne/c92e565c984acc63fba66ea20d1e2127.png"></div></div></section><section data-id="31586aaf2497f573cbf59a2c3c4e6c3d"><div class="sl-block" data-block-type="image" data-name="image-184a58" data-block-id="e5dcf354cbc020b7055c968c00c06dfe" style="width: 590.728px; height: 333.91px; left: 68px; top: 51px;"><div class="sl-block-content" style="z-index: 10;"><img style="" data-natural-width="1272" data-natural-height="719" data-lazy-loaded="" data-src="testy-wydajnosciowe-jmeter-prezentacja-4h-cwiczenia-praktyczne/670c94031ae380c67e7531a52c6d2db5.png"></div></div>
+<div class="sl-block" data-block-type="image" data-name="image-ace0cd" data-block-id="1e7641ab2f26222154212da5f0a7ba0b" style="width: 581.216px; height: 374px; left: 298.784px; top: 197.91px;"><div class="sl-block-content fragment" style="z-index: 11;" data-fragment-index="0"><img style="" data-natural-width="1380" data-natural-height="888" data-lazy-loaded="" data-src="testy-wydajnosciowe-jmeter-prezentacja-4h-cwiczenia-praktyczne/f060a2742c13020163a3d579440cf21f.png"></div></div>
+<div class="sl-block" data-block-type="text" data-name="text-11b983" data-block-id="e090aee8dbf9f160860ce42004acd8b7" style="height: auto; width: 843px; left: 80px; top: 591px;"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 12;">
+<p><em>HTTP Request -&gt; Add -&gt; Listener -&gt; jp@gc - Active Threads Over Time</em></p>
+</div></div></section><section data-id="b730d5be77492dc724a8bb3ecf82efc2"><div class="sl-block" data-block-type="image" data-name="image-b0342a" data-block-id="5760f5ba6fe33c29af2e1e1fd9252070" style="width: 548.712px; height: 317.276px; left: 73.9995px; top: 43.362px;"><div class="sl-block-content" style="z-index: 10;"><img style="" data-natural-width="1157" data-natural-height="669" data-lazy-loaded="" data-src="testy-wydajnosciowe-jmeter-prezentacja-4h-cwiczenia-praktyczne/7275de2c92550c347b32af2aeacc1a98.png"></div></div>
+<div class="sl-block" data-block-type="image" data-name="image-c7822b" data-block-id="d99865c375811992e8f141c625802247" style="width: 482.663px; height: 431px; left: 375.38px; top: 165px;"><div class="sl-block-content" style="z-index: 11;"><img style="" data-natural-width="1009" data-natural-height="901" data-lazy-loaded="" data-src="testy-wydajnosciowe-jmeter-prezentacja-4h-cwiczenia-praktyczne/408203a28f4cc89a03cd7891c03b7f7f.png"></div></div>
+<div class="sl-block" data-block-type="text" data-name="text-11b983" style="height: auto; width: 843px; left: 80px; top: 606px;" data-block-id="92ab220e26048fab198d3adf0831089d"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 12;">
+<p><em>Test Plan -&gt; Add -&gt; Threads (Users) -&gt; jp@gc - Ultimate Thread Group</em></p>
+</div></div></section></section><section data-id="a207a05d2723c97e5389ddd8929979f8"><div class="sl-block" data-block-type="text" data-name="text-8acb68" data-block-id="2e3a1d93d7b4e752afd78c584575efd1" style="height: auto; width: 947px; left: 13px; top: 170px;">
+    <div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" data-has-custom-html="">
+<h2>Ćwiczenie 2</h2>
+
+<p> </p>
+
+<p style="text-align: left;">Do przygotowanego wcześniej skryptu dodanie słuchaczy np.:</p>
+
+<ul>
+	<li>
+	<p>View Result Tree</p>
+	</li>
+	<li>
+	<p>Aggregate Report</p>
+	</li>
+	<li>
+	<p style="font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; color: rgb(0, 0, 0);">View Results in Table</p>
+	</li>
+</ul>
+
+<p style="text-align: left;">Instalacja pluginu - 3 Basic Graphs i dodanie jp@gc - Active Threads Over Time.</p>
+</div>
+</div></section><section class="stack" data-id="5dbc7f7b88e31c70ced9cd639310beff"><section data-id="96c9228a4aef11d026a5e69ffefa84db"><div class="sl-block" data-block-type="text" style="width: 806px; left: 77px; top: 266px; height: auto;" data-block-id="538f9323dc92c6aee7f3afbdd98e6110"><div class="sl-block-content" data-placeholder-tag="h1" data-placeholder-text="Title Text" style="z-index: 10;">
+<h1>Logowanie, sesje i cache manager </h1>
+</div></div></section><section data-id="f7b044ac11b37df3225f92f2a75f3848"><div class="sl-block" data-block-type="text" data-name="text-fd7fd2" data-block-id="e43d524cc53cb18a13fa6d4641f42b99" style="height: auto; width: 960px; left: 0px; top: 99px;"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" data-has-custom-html="">
+<h2>Cookie Manager</h2>
+
+<p> </p>
+
+<ul>
+	<li class="fragment" data-fragment-index="0">
+	<p>Dodanie obsługi plików cookie, niezbędne przy aplikacjach wymagających zalogowania: Grupa wątków -&gt; Dodaj -&gt; Element konfigurujący -&gt; HTTP Cookie Manager.</p>
+	</li>
+	<li class="fragment" data-fragment-index="1">
+	<p>Cookie Manager umożliwia dodawanie plików cookie przez użytkownika.</p>
+	</li>
+	<li class="fragment" data-fragment-index="2">
+	<p>Każdy wątek ma swój własny obszar przechowywania plików cookie, co daje możliwość symulowania wielu użytkowników.</p>
+	</li>
+	<li class="fragment" data-fragment-index="3">
+	<p>Jeśli identyfikator byłby przesyłany w adresie URL można skorzystać z HTTP URL Re-writing Modifier.</p>
+	</li>
+</ul>
+</div></div></section><section data-id="9402f2b2ce7d532db8b315f40c57c08c"><div class="sl-block" data-block-type="text" data-name="text-42ca39" data-block-id="09a1654197751f5d323619b6d69e0133" style="height: auto; width: 960px; left: 0px; top: 140px;"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" data-has-custom-html="">
+<h2>HTTP Cache Manager</h2>
+
+<p> </p>
+
+<ul>
+	<li class="fragment" data-fragment-index="0">
+	<p>Symuluje zachowanie rzeczywistej przeglądarki.</p>
+	</li>
+	<li class="fragment" data-fragment-index="1">
+	<p>Sprawdza tagi Last-Modified oraz Etag.</p>
+	</li>
+	<li class="fragment" data-fragment-index="2">
+	<p>Należy ustawić maksymalną liczbę elementów w cachu, domyślnie 5000</p>
+	</li>
+	<li class="fragment" data-fragment-index="3">
+	<p>Ewentualne problemy związane z cache manager "All resources are cached in RAM so, in the scenario where this parameter is too high, you will easily get an OutOfMemoryException."</p>
+	</li>
+</ul>
+</div></div></section><section data-id="58d2fffab374c59fb5f2ef8a35810553"><div class="sl-block" data-block-type="text" data-name="text-bfb05b" data-block-id="ab35c4d323f6c9643914df04e8452577" style="height: auto; width: 960px; left: 0px; top: 83px;"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" data-has-custom-html="" style="z-index: 10;">
+<h2>HTTP Cache Manager</h2>
+
+<p> </p>
+
+<p>Jmeter nie pobiera statycznej zawartości, dopóki nie zostanie to specjalnie skonfigurowane. Jeśli zaznaczymy opcję "Retrieve All Embedded Resources", Jmeter pobierze wszystkie pliki statyczne (takie jak HTML, CSS, js, obrazy itp.)</p>
+</div></div>
+<div class="sl-block" data-block-type="image" data-name="image-de0c0f" data-block-id="25f19e7ffa3fa62047b8de33ce240358" style="width: 550.938px; height: 284.677px; left: 204.531px; top: 400.323px; min-width: 1px; min-height: 1px;"><div class="sl-block-content fragment fade-up" style="z-index: 11;" data-fragment-index="0"><img style="" data-natural-width="718" data-natural-height="371" data-lazy-loaded="" data-src="testy-wydajnosciowe-jmeter-prezentacja-4h-cwiczenia-praktyczne/472cec34fa974a5bab480d30edfb4574.png"></div></div></section><section data-id="5ea02e8e690d0bd5762ef1164ebbd804"><div class="sl-block" data-block-type="text" data-name="text-a5ca51" data-block-id="599d6d11f027b8b864a9f0b23cee3cc2" style="height: auto; width: 960px; left: 0px; top: 70px;"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" data-has-custom-html="" style="z-index: 10;">
+<p>Porównanie czasów odpowiedzi z włączoną opcją cachowania i bez</p>
+</div></div>
+<div class="sl-block" data-block-type="image" style="width: 806.4px; height: 198.861px; left: 86.8px; top: 180.57px; min-width: 1px; min-height: 1px;" data-name="image-fcd8b5" data-block-id="bf6e1489191276d46d7be43cb56921f8"><div class="sl-block-content fragment fade-up" style="z-index: 11;" data-fragment-index="0"><img style="" data-natural-width="957" data-natural-height="236" data-lazy-loaded="" data-src="testy-wydajnosciowe-jmeter-prezentacja-4h-cwiczenia-praktyczne/8447959daa63e48f8a028cf6aff60bfe.png"></div></div>
+<div class="sl-block" data-block-type="image" style="width: 806.4px; height: 178.149px; left: 86.8px; top: 410.925px; min-width: 1px; min-height: 1px;" data-name="image-9b9b95" data-block-id="4168ca79644eb3b379477ed68f246ddf"><div class="sl-block-content fragment fade-up" style="z-index: 12;" data-fragment-index="1"><img style="" data-natural-width="1023" data-natural-height="226" data-lazy-loaded="" data-src="testy-wydajnosciowe-jmeter-prezentacja-4h-cwiczenia-praktyczne/f8efebf317e5fc688cb951089fdb2449.png"></div></div>
+<div class="sl-block" data-block-type="text" data-name="text-0f1c4c" data-block-id="17bb7cb327d9f451a3279d474437dadd" style="height: auto; width: 919px; left: 20.5px; top: 610.5px;"><div class="sl-block-content fragment fade-up" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 13;" data-fragment-index="2">
+<p><span style="color:rgb(0, 0, 0)">Źródło: redline13.com/blog/2016/01/jmeter-http-cache-manager/</span></p>
+</div></div></section></section><section data-id="828bca57045e24e98c7d2c3b73f8ddf1" class="stack"><section data-id="a41ef0363ca04bc882c3226349023341"><div class="sl-block" data-block-type="text" data-name="text-d8bf45" data-block-id="351cad0375228dd178a6fbc1d90bc3fc" style="height: auto; width: 960px; left: 0px; top: 313px;"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" data-has-custom-html="">
+<h1>Asercje</h1>
+</div></div></section><section data-id="2a11b6f7e76101094067d5d3ae24d50d"><div class="sl-block" data-block-type="text" data-name="text-c98c76" data-block-id="cde84c689055e368102cd92d90235d83" style="height: auto; width: 960px; left: 0px; top: 140px;"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" data-has-custom-html="">
+<h2>Asercje</h2>
+
+<p> </p>
+
+<ul>
+	<li class="fragment" data-fragment-index="0">
+	<p>Sprawdzenie czy otrzymujemy oczekiwaną odpowiedź przez dodanie asercji: Grupa wątków -&gt; Dodaj -&gt; Assertions -&gt; Response Assertion/HTML Assertion.</p>
+	</li>
+	<li class="fragment" data-fragment-index="1">
+	<p>HTML Assertion - sprawdza składnię zwróconego HTMLa.</p>
+	</li>
+	<li class="fragment" data-fragment-index="2">
+	<p>Wynik asercji jest widoczny np. w drzewie wyników.</p>
+	</li>
+	<li class="fragment" data-fragment-index="3">
+	<p>Asercje mogą sprawdzać takie formaty jak XML, JSON, HTTP.</p>
+	</li>
+</ul>
+</div></div></section><section data-id="3f6e02d7d5da96f4d79ca547d42ddc60"><div class="sl-block" data-block-type="text" data-name="text-68d1d8" data-block-id="1a17e2f865169c49bcd2543bf8911d53" style="height: auto; width: 960px; left: 0px; top: 140px;"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" data-has-custom-html="">
+<h2>Asercje</h2>
+
+<p> </p>
+
+<ul>
+	<li class="fragment fade-up" data-fragment-index="0">
+	<p>Response Assertion - możliwość sprawdzenia m. in. tekstu odpowiedzi, kodu odpowiedzi, nagłówków odpowiedzi. Często spotykane kody odpowiedzi:</p>
+
+	<ul>
+		<li>
+		<p>404: Server error,</p>
+		</li>
+		<li>
+		<p>200: Server OK,</p>
+		</li>
+		<li>
+		<p>302: Web server redirect to other page.</p>
+		</li>
+	</ul>
+	</li>
+</ul>
+</div></div></section><section data-id="c08f7c984690d2ced9d2d7067c60a6be"><div class="sl-block" data-block-type="text" data-name="text-f0aedf" data-block-id="9db832d79e7b01e01b81b9d9234d38c9" style="height: auto; width: 960px; left: 0px; top: 158px;"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" data-has-custom-html="">
+<h2>Asercje</h2>
+
+<p> </p>
+
+<p>Dodanie asercji to dodatkowe obciążenie, zużycie pamięci i CPU. Response Assertion i Duration Assertion wiążą się z mniejszym obciążeniem, najbardziej obciążające są asercje bazujące na XML - Compare Assertion i XPath Assertion.<br>
+<i><strong>Compare Assertion must not be used during load test as it consumes a lot of resources (memory and CPU)</strong></i></p>
+</div></div></section><section data-id="77e14ad4acdb3d2e7abf645bbe90afa7"><div class="sl-block" data-block-type="text" data-name="text-d2f5fd" data-block-id="bcac71da8c9f5ba52c37ced16c1823d5" style="height: auto; width: 960px; left: 0px; top: 103px;"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" data-has-custom-html="" style="z-index: 10;">
+<h2>Asercje</h2>
+</div></div>
+
+<div class="sl-block" data-block-type="image" data-name="image-f9ad3a" data-block-id="cbbfe64150fb2e5445ce66c32f9056d5" style="width: 636.298px; height: 382.165px; left: 175.902px; top: 210px;"><div class="sl-block-content" style="z-index: 11;"><img style="" data-natural-width="989" data-natural-height="594" data-lazy-loaded="" data-src="testy-wydajnosciowe-jmeter-prezentacja-4h-cwiczenia-praktyczne/95eee50a0f90c6f3af5f83b334dfd535.png"></div></div></section><section data-id="d01eaa74431eb034c8ffb2b3c4f06e09"><div class="sl-block" data-block-type="text" data-name="text-f5fdc2" data-block-id="ae49fa9bb748f59e3b030707f35a7df3" style="height: auto; width: 960px; left: 0px; top: 158.5px;"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" data-has-custom-html="">
+						<h3>Asercje - Response Assertion</h3>
+						<ul>
+							<li>
+<p><b>Contains</b> - true if the text contains the regular expression pattern,</p>
+</li>
+							<li>
+<p><b>Matches</b> - true if the whole text matches the regular expression pattern,</p>
+</li>
+							<li>
+<p><b>Equals</b> - true if the whole text equals the pattern string (case-sensitive),</p>
+</li>
+							<li>
+<p><b>Substring</b> - true if the text contains the pattern string (case-sensitive).</p>
+</li>
+						</ul>
+					</div></div></section><section data-id="b7dc85407dd6f8319c70d2ab27bddc50"><div class="sl-block" data-block-type="text" data-name="text-4f8da2" data-block-id="17f3836310546cbc822c6ae9814f7ea0" style="height: auto; width: 960px; left: 0px; top: 127.5px;"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" data-has-custom-html="" style="z-index: 10;">
+<h2>Poziomy asercji</h2>
+</div></div>
+<div class="sl-block" data-block-type="text" data-name="text-19cd64" data-block-id="090bd18e6b73ba6f6dfe9e943ab550e6" style="height: auto; width: 600px; left: 200px; top: 583.5px;"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 11;">
+<p><span style="color:rgb(0, 0, 0)">Źródło: blazemeter.com</span></p>
+</div></div>
+<div class="sl-block" data-block-type="image" style="width: 806.4px; height: 337.563px; left: 76.8px; top: 233.219px; min-width: 1px; min-height: 1px;" data-name="image-901452" data-block-id="597e405b91fa931022f8a4c5395133f3"><div class="sl-block-content" style="z-index: 12;"><img style="" data-natural-width="1161" data-natural-height="486" data-lazy-loaded="" data-src="testy-wydajnosciowe-jmeter-prezentacja-4h-cwiczenia-praktyczne/ab8e6d768a56cf50b78fa685d4a83bcd.png"></div></div></section></section><section data-id="1fffd0a700b159d1bc3bf15c26e53cc4"><div class="sl-block" data-block-type="text" data-name="text-8acb68" style="height: auto; width: 941px; left: 19px; top: 222px;" data-block-id="3b96cd4be15fcc6d90bf9817ac322bfb"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" data-has-custom-html="" style="z-index: 10;">
+<h2>Ćwiczenie 3</h2>
+
+<p> </p>
+
+<p style="text-align: left;">Do przygotowanego wcześniej skryptu dodanie asercji np.:</p>
+
+<ul>
+	<li>
+	<p>Response Assertion - Response Code</p>
+	</li>
+	<li>
+	<p>Response Assertion - Response Message</p>
+	</li>
+	<li>
+	<p>Response Assertion - Response Headers</p>
+	</li>
+</ul>
+</div></div></section><section data-id="9ee3139b1abf892118710a9c387117d6" class="stack"><section data-id="2d72dded4698ba4c31ea65074ba3a053"><div class="sl-block" data-block-type="text" data-name="text-c42332" data-block-id="886e56979a222ffa788683273afd9919" style="height: auto; width: 960px; left: 0px; top: 313px;"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" data-has-custom-html="">
+<h1>Wyrażenia regularne</h1>
+</div></div></section><section data-id="90cfbbbf77cd20b35b28a44ffe06ed38"><div class="sl-block" data-block-type="text" data-name="text-ce2508" data-block-id="cbc7a18949c61b3bd62afd9fe7cf065d" style="height: auto; width: 960px; left: 0px; top: 178px;"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" data-has-custom-html="">
+<h3>Wyrażenia regularne (ang. regular expressions, w skrócie regex lub regexp)</h3>
+
+<p> </p>
+
+<p>Wzorce, które opisują łańcuchy symboli. Pozwalają w łatwy sposób opisywać wzorce tekstu, natomiast istniejące algorytmy w efektywny sposób określają, <strong>czy podany ciąg znaków pasuje do wzorca</strong> lub wyszukują w tekście wystąpienia wzorca.</p>
+</div></div></section><section data-id="7f802d2eb4bc91183b8504f8568b85b7"><div class="sl-block" data-block-type="text" data-name="text-c03843" data-block-id="18f859fc37261c05a5b1ace254f8e2bf" style="height: auto; width: 960px; left: 0px; top: 57.5px;"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" data-has-custom-html="">
+						<p><img height="538" alt="Regular expression" data-lazy-loaded="" data-src="testy-wydajnosciowe-jmeter-prezentacja-4h-cwiczenia-praktyczne/31588b14338bffcb85dc4b499181bf57.png">
+						<br>Żródło: https://xkcd.com/208/
+						</p>
+					</div></div></section><section data-id="5666c731e42bc7bf51bbda8350ea1b45"><div class="sl-block" data-block-type="text" data-name="text-32d1e6" data-block-id="b27aebe3f36b8973a9d94468193e8793" style="height: auto; width: 960px; left: 0px; top: 219px;"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" data-has-custom-html="">
+					<h3>Wyrażenia regularne</h3>
+					<ul>
+						<li class="fragment" data-fragment-index="0"><p>Ze zwracanej odpowiedzi można pobierać jej fragmenty, co jest szczególnie przydatne w przypadku dodatkowych tokenów zwracanych np. w polach input typu hidden.</p></li>
+						<li class="fragment" data-fragment-index="1"><p>Odpowiedni fragment odpowiedzi wyszukuje się za pomocą wyrażenia regularnego.</p></li>
+					</ul>
+					</div></div></section><section data-id="205850f0444c76f28c05723ad0495689"><div class="sl-block" data-block-type="text" data-name="text-5f6514" data-block-id="a700b1aafeb159c9a936d36552b242ef" style="height: auto; width: 960px; left: 0px; top: 165px;"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" data-has-custom-html="">
+					
+					<table>
+						<tbody>
+							<tr>
+								<td><p><b>^</b></p></td>
+								<td><p>Początek linii</p></td>
+							</tr>
+							<tr>
+								<td><p><b>$</b></p></td>
+								<td><p>Koniec linii</p></td>
+							</tr>
+							<tr>
+								<td><p><b>.</b></p></td>
+								<td><p>Dowolny znak</p></td>
+							</tr>
+							<tr>
+								<td><p><b>\s</b></p></td>
+								<td><p>Białe znaki</p></td>
+							</tr>
+							<tr>
+								<td><p><b>\S</b></p></td>
+								<td><p>Dowolny znak nie będący białym znakiem</p></td>
+							</tr>
+							<tr>
+								<td><p><b>*</b></p></td>
+								<td><p>Zero lub więcej wystąpień</p></td>
+							</tr>
+							<tr>
+								<td><p><b>*?</b></p></td>
+								<td><p>Zero lub więcej wystąpień (wersja niezachłanna)</p></td>
+							</tr>
+						</tbody>
+					</table>
+				</div></div></section><section data-id="9a1eb7728bfa62db7db2fcbc46c3b5e4"><div class="sl-block" data-block-type="text" data-name="text-a00150" data-block-id="09b7188b7a90d76608ca0a0a9d36402f" style="height: auto; width: 960px; left: 0px; top: 218px;"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" data-has-custom-html="">
+				<table>
+						<tbody>
+							<tr>
+								<td><p><b>+</b></p></td>
+								<td><p>Jedno lub więcej wystąpień</p></td>
+							</tr>
+							<tr>
+								<td><p><b>+?</b></p></td>
+								<td><p>Jedno lub więcej wystąpień (wersja niezachłanna)</p></td>
+							</tr>
+							<tr>
+								<td><p><b>[aeiou]</b></p></td>
+								<td><p>Jeden znak spośród zbioru znaków</p></td>
+							</tr>
+							<tr>
+								<td><p><b>[^ XYZ]</b></p></td>
+								<td><p>Jeden znak spoza zbioru znaków</p></td>
+							</tr>
+							<tr>
+								<td><p><b>[a-z0-9]</b></p></td>
+								<td><p>Zestaw znaków może zawierać zakres</p></td>
+							</tr>
+						</tbody>
+					</table>
+				</div></div></section><section data-id="5914f3e0515ebbb431d18937a75b60bc"><div class="sl-block" data-block-type="text" data-name="text-cc0a72" data-block-id="ad74c0c43fac95a25c1bf8068653348d" style="height: auto; width: 918px; left: 21px; top: 256.5px;"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" data-has-custom-html="">
+				<table>
+						<tbody>
+							<tr>
+								<td><p><b>(</b></p></td>
+								<td><p>Dopasowanie wyrażenia w nawiasie jako grupy (początek grupy)</p></td>
+							</tr>
+							<tr>
+								<td><p><b>)</b></p></td>
+								<td><p>Dopasowanie wyrażenia w nawiasie jako grupy (koniec grupy)</p></td>
+							</tr>
+						</tbody>
+					</table>
+					<p>
+					Grupowanie umożliwia tworzenie dłuższych wyrażeń regularnych dla których mogą być zwracane tylko interesujące nas fragmenty.
+					</p>
+				</div></div></section><section data-id="148dc9ee785bda0b38d6be830c7d5fb8"><div class="sl-block" data-block-type="text" data-name="text-501280" data-block-id="d49b4638801089a5a332e56dbfeecb70" style="height: auto; width: 960px; left: 0px; top: 272px;"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" data-has-custom-html="">
+					<p>Większość znaków może być używana jako literały. Istnieją jednak znaki specjalne, które muszą być poprzedzone ukośnikiem <em>\</em>, aby można było ich używać jako literałów. Wspomniane znaki specjalne to: <em>\ . ^ $ ? + * { } [ ] |</em>
+					</p>
+				</div></div></section><section data-id="c06c92b492fd3bdce3ccd5798a737777"><div class="sl-block" data-block-type="text" data-name="text-22ad45" data-block-id="1a4ea30773da9043948ceb259c8c60cb" style="height: auto; width: 960px; left: 0px; top: 291.5px;"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" data-has-custom-html="">
+					<p>
+					Domyślnie kwantyfikatory są zachłanne, tzn. starają się dopasować maksymalną możliwą ilość znaków w tekście.
+					Niezachłanne - dodanie <em>?</em>
+					</p>
+				</div></div></section><section data-id="81d93913ca6615be74769272921f7868"><div class="sl-block" data-block-type="text" data-name="text-1b209f" data-block-id="34eea3a0d080cf4f7fc3373241309b0f" style="height: auto; width: 960px; left: 0px; top: 155.25px;"><div class="sl-block-content fragment" data-placeholder-tag="p" data-placeholder-text="Text" data-has-custom-html="" style="z-index: 10;" data-fragment-index="0">
+<p>Załóżmy, że mamy następujący fragment strony</p>
+
+<p> </p>
+</div></div>
+<div class="sl-block" data-block-type="code" data-name="code-62d38f" data-block-id="fffa0b7559606063f253b27611c956e1" style="width: 506px; height: 45.5px; left: 227px; top: 240.25px;"><div class="sl-block-content notranslate fragment" data-highlight-theme="monokai" data-code-frame="none" style="z-index: 11;" data-fragment-index="1"><pre class="bash" style="font-size: 24px; line-height: 29px;"><code data-line-numbers="">name="file" value="readme.txt"&gt;</code></pre></div></div>
+<div class="sl-block" data-block-type="code" data-name="code-0b3e46" data-block-id="b08870b832fe722a0a411a62f77fc1ec" style="width: 500px; height: 53px; left: 227px; top: 491.75px;"><div class="sl-block-content notranslate fragment" data-highlight-theme="monokai" data-code-frame="none" style="z-index: 12;" data-fragment-index="3"><pre class="bash" style="font-size: 24px; line-height: 29px;"><code data-line-numbers="">name="file" value="(.+?)"&gt;</code></pre></div></div>
+<div class="sl-block" data-block-type="text" data-name="text-374eff" data-block-id="3c74079ceed5504bc747a8f21841175b" style="height: auto; width: 600px; left: 177px; top: 330.25px;"><div class="sl-block-content fragment" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 13;" data-fragment-index="2">
+<p><span style="color:rgb(0, 0, 0)">i chcemy pobrać nazwę pliku </span><em>readme.txt</em><span style="color:rgb(0, 0, 0)">. Odpowiednie wyrażenie regularne ma postać:</span></p>
+</div></div></section><section data-id="5bd1f776746816883d6a7b20c6f2519d"><div class="sl-block" data-block-type="text" data-name="text-29a308" data-block-id="dc6cd014687a07a98ee1ebb273852ed6" style="height: auto; width: 960px; left: 0px; top: 140px;"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" data-has-custom-html="" style="z-index: 10;">
+<h2>Wyrażenia regularne</h2>
+
+<p> </p>
+
+<ul>
+	<li>
+	<p>Przygotowując wyrażenie regularne warto korzystać z funkcji RegExp Tester w Listener View Results Tree.</p>
+	</li>
+	<li>
+	<p><strong>Przykład - wyszukanie wszystkich linków na stronie głównej</strong>. Odpowiednie wyrażenie regularne ma postać:</p>
+	</li>
+</ul>
+</div></div>
+<div class="sl-block" data-block-type="code" data-name="code-7e879e" data-block-id="f9e0729f7f3c6559b39de330efe61e95" style="width: 467px; height: 50px; left: 246.5px; top: 483.5px;"><div class="sl-block-content notranslate" data-highlight-theme="monokai" data-code-frame="none" style="z-index: 11;"><pre class="bash" style="font-size: 24px; line-height: 29px;"><code data-line-numbers="">a href="http:\/\/([^"]+)".</code></pre></div></div></section><section data-id="f3b5c68e4c13a678c52307dba74a8a8d"><div class="sl-block" data-block-type="text" data-name="text-5349c5" data-block-id="55c690369a4352d0e8ddd70fff481aaf" style="height: auto; width: 960px; left: 0px; top: 110px;"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" data-has-custom-html="" style="z-index: 10;">
+<p>Przygotowywanie wyrażeń regularnych - <a href="https://regex101.com/" target="_blank">https://regex101.com/</a></p>
+</div></div>
+<div class="sl-block" data-block-type="image" style="width: 806.4px; height: 444.731px; left: 76.8px; top: 177.269px; min-width: 1px; min-height: 1px;" data-name="image-372057" data-block-id="d69f2be989528260d6022d9956a46a32"><div class="sl-block-content" style="z-index: 11;"><img data-natural-width="1398" data-natural-height="771" style="" data-lazy-loaded="" data-src="testy-wydajnosciowe-jmeter-prezentacja-4h-cwiczenia-praktyczne/5f0a449b5e627737edd5d593b9fbd7a6.png"></div></div></section><section data-id="66c79e2f524b2f6ec3e4e8afa22c72bc"><div class="sl-block" data-block-type="text" data-name="text-f7ac84" data-block-id="edaaa11a6935222a139d02e4d174d1f1" style="height: auto; width: 960px; left: 0px; top: 218px;"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" data-has-custom-html="">
+<h2>Regular Expression Extractor</h2>
+
+<p> </p>
+
+<ul>
+	<li class="fragment" data-fragment-index="0">
+	<p><b>Match No.</b> - określa które znalezione dopasowanie zostanie zwrócone, możliwe wartości to np. 0 dla losowego, -1 dla wszystkich,</p>
+	</li>
+	<li class="fragment" data-fragment-index="1">
+	<p><b>Template</b> - odnosi się do grupy w wyrażeniu regularnym, $1$ to grupa 1, $2$ to grupa druga.</p>
+	</li>
+</ul>
+</div></div></section></section><section data-id="cb842d119b4f42e08f2bfedefb3a50db"><div class="sl-block" data-block-type="text" data-name="text-1167dd" data-block-id="951980733f4b16538c017c30213cfb0b" style="height: auto; width: 943px; left: 17px; top: 120.5px;"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" data-has-custom-html="">
+<h2>Ćwiczenie 4</h2>
+
+<p style="text-align: left;">Rozbudowanie przygotowanego wcześniej skryptu o następujące operacje:</p>
+
+<ul>
+	<li>
+	<p>Wyświetlenie szczegółów produktu</p>
+	</li>
+	<li>
+	<p>Dodanie produktu do koszyka</p>
+	</li>
+	<li>
+	<p>Wyświetlenie zawartości koszyka</p>
+	</li>
+</ul>
+
+<p style="text-align: left;">Aby dodać produkt do koszyka należy przesłać poprawny token pobrany ze strony ze szczegółami produktu (wyrażenia regularne). Na stronie z zawartością koszyka należy sprawdzić, czy kwota do zapłaty jest poprawna (asercje).</p>
+</div></div></section><section data-id="7225eb31d83528750f4a81f45554d6d5" class="stack"><section data-id="9042429182c7b2cefb3a3a5c514b38dd"><div class="sl-block" data-block-type="text" data-name="text-f36960" data-block-id="e8c700492b63f9d062e3a79083afb796" style="height: auto; width: 960px; left: 0px; top: 325px;"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" data-has-custom-html="">
+<h1>Timer</h1>
+</div></div></section><section data-id="d4c00e323f4e44e39d3c86872dc3e424"><div class="sl-block" data-block-type="text" data-name="text-496b0f" data-block-id="9a21510120bc3097ffcc4410b34b4e96" style="height: auto; width: 960px; left: 0px; top: 167px;"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" data-has-custom-html="">
+<h2>Timer</h2>
+
+<p> </p>
+
+<ul>
+	<li>
+	<p>Domyślnie wątki JMetera wysyłają żądania w zadeklarowanej kolejności bez przerw pomiędzy żądaniami. Symulując zachowanie rzeczywistych użytkowników warto wprowadzić opóźnienie pomiędzy kolejnymi żądaniami. </p>
+	</li>
+</ul>
+</div></div></section><section data-id="0d8834c05541e59092d6f89dc50e2377"><div class="sl-block" data-block-type="text" data-name="text-d5aceb" data-block-id="6f0d3e79fdf0d062da76a6eb8f9a0daa" style="height: auto; width: 960px; left: 0px; top: 186.5px;"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" data-has-custom-html="">
+<h2>Timer</h2>
+
+<p> </p>
+
+<ul>
+	<li>
+	<p>Zgodnie z dokumentacją każdy Timer wykonuje się przed żądaniem w zakresie którego się znajduje.</p>
+	</li>
+	<li>
+	<p>Timery są wykonywane jedynie w połączeniu z żądaniami (samplerami).</p>
+	</li>
+	<li>
+	<p>Aby Timer odnosił się tylko do jednego żądania należy dodać go jako dziecko odpowiedniego węzła.</p>
+	</li>
+</ul>
+</div></div></section><section data-id="930876a3328b58efb80a77c3b45046c6"><div class="sl-block" data-block-type="text" data-name="text-37dc08" data-block-id="7b84fd9fba4d169709e4a20231ff1e47" style="height: auto; width: 960px; left: 0px; top: 128px;"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" data-has-custom-html="">
+					<h2>Dostępne rodzaje Timerów</h2>
+					<ul>
+							<li><p>Constant Timer</p></li>
+							<li><p>Uniform Random Timer</p></li>
+							<li><p>Gaussian Random Timer</p></li>
+							<li><p>Poisson Random Timer</p></li>
+							<li><p>Constant Throughput Timer</p></li>
+							<li><p>Synchronizing Timer</p></li>
+							<li><p>BeanShell Timer</p></li>
+							<li><p>BSF Timer</p></li>
+							<li><p>SR223 Timer</p></li>
+					</ul>
+				</div></div></section><section data-id="2c9748447b64ec208fc99329d06fc9de"><div class="sl-block" data-block-type="text" data-name="text-c7f92e" data-block-id="95edcb23144c9a505a0c7069973167dd" style="height: auto; width: 451px; left: 451px; top: 205.5px;"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" data-has-custom-html="" style="z-index: 11; background-color: rgb(255, 255, 255); transition-duration: 0.6s; transition-delay: 0.6s;" data-animation-type="fade-in">
+<p><small>Timer A - applicable to Sampler A only<br>
+Timer B - applicable to Sampler A and Sampler B<br>
+Timer C - applicable to Sampler A, Sampler B and Sampler C<br>
+The Timers are executed before the sampler’s execution<br>
+The Timer execution time is not added to the sampler execution time<br>
+<br>
+Źródło: blazemeter.com/blog/comprehensive-guide-using-jmeter-timers </small></p>
+</div></div>
+<div class="sl-block" data-block-type="image" style="width: 491.161px; height: 329px; left: 46.839px; top: 150px; min-width: 1px; min-height: 1px;" data-name="image-3f52e8" data-block-id="424eec309284dbb2c6bc23db92e5a8cd"><div class="sl-block-content" style="z-index: 10;"><img style="" data-natural-width="630" data-natural-height="422" data-lazy-loaded="" data-src="testy-wydajnosciowe-jmeter-prezentacja-4h-cwiczenia-praktyczne/258e9e3426fa532d08b7609ba778571a.png"></div></div></section><section data-id="ff8b8ba076b4ad847ce2975172638bff"><div class="sl-block" data-block-type="text" data-name="text-4915c0" data-block-id="f57597a04261716ab88b10548719673a" style="height: auto; width: 960px; left: 0px; top: 167px;"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" data-has-custom-html="">
+<h2>Constant Timer</h2>
+
+<ul>
+	<li>
+	<p>Ustawienie stałych odstępów pomiędzy żądaniami - Thread Delay (in milliseconds).</p>
+	</li>
+	<li>
+	<p>Odstępy pomiędzy żądaniami nie muszą być stałe - mogą być wartością losową z pewnego przedziału lub zmienną zadeklarowaną wcześniej w skrypcie.</p>
+	</li>
+	<li>
+	<p>Funkcja <strong>${__Random(0,10)}</strong> zwraca losową wartość z podanego przedziału, tutaj jest to losowa wartość z przedziału 0 - 10.</p>
+	</li>
+</ul>
+</div></div></section><section data-id="c2871d94f91f9eec11839a659178e189"><div class="sl-block" data-block-type="text" data-name="text-1fa54a" data-block-id="299ff2f651535ed7266b137e7c6a65a7" style="height: auto; width: 960px; left: 0px; top: 420px;"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" data-has-custom-html="" style="z-index: 10;">
+<p>Źródło: <a href="http://blazemeter.com/blog/comprehensive-guide-using-jmeter-timers" target="_blank">blazemeter.com/blog/comprehensive-guide-using-jmeter-timers</a></p>
+</div></div>
+<div class="sl-block" data-block-type="image" style="width: 806.4px; height: 136.495px; left: 76.8px; top: 213.505px; min-width: 1px; min-height: 1px;" data-name="image-d52e73" data-block-id="1d5724722b3371e048ab7a0a5f7075a7"><div class="sl-block-content" style="z-index: 11;"><img data-natural-width="898" data-natural-height="152" style="" data-lazy-loaded="" data-src="testy-wydajnosciowe-jmeter-prezentacja-4h-cwiczenia-praktyczne/e4838bf26dc8b4d123d3099d609b2d47.png"></div></div></section><section data-id="fb78ff44e2a988ddd7eec3781a8565d7"><div class="sl-block" data-block-type="text" data-name="text-57b380" data-block-id="8c5e9c5d7576e29e71a183b8256ec005" style="height: auto; width: 960px; left: 0px; top: 141px;"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" data-has-custom-html="" style="z-index: 10;">
+<h2>Gaussian Random Timer</h2>
+
+<p> </p>
+
+<p>Zmienność wokół stałej przesunięcia (Constant Delay Offset) ma rozkład Gaussa.</p>
+</div></div>
+<div class="sl-block" data-block-type="image" style="width: 806.4px; height: 262.725px; left: 76.8px; top: 387.637px; min-width: 1px; min-height: 1px;" data-name="image-5167a3" data-block-id="8f6bd4fc0228537b3ac657b2b9f33b7e"><div class="sl-block-content" style="z-index: 11;"><img data-natural-width="531" data-natural-height="173" style="" data-lazy-loaded="" data-src="testy-wydajnosciowe-jmeter-prezentacja-4h-cwiczenia-praktyczne/543413fb6ef41f6a283bfe51a37216de.png"></div></div></section><section data-id="09d159ce7b52eb2d41562241a65b7d12"><div class="sl-block" data-block-type="text" data-name="text-bfc482" data-block-id="d9dee3bc505a1e5b42c7ac2cd1c83616" style="height: auto; width: 960px; left: 0px; top: 134px;"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" data-has-custom-html="" style="z-index: 10;">
+<h2>Uniform Random Timer</h2>
+
+<p> </p>
+
+<p>Opóźnienie o losową wartość, gdzie każda z wartości ma to samo prawdopodobieństwo wystąpienia.</p>
+</div></div>
+<div class="sl-block" data-block-type="image" data-name="image-5ff46d" data-block-id="a4238f5a18e02095e8bcd29e40ca3c9e" style="width: 423.341px; height: 178.668px; left: 281.859px; top: 400.666px;"><div class="sl-block-content" style="z-index: 11;"><img data-natural-width="372" data-natural-height="157" style="" data-lazy-loaded="" data-src="testy-wydajnosciowe-jmeter-prezentacja-4h-cwiczenia-praktyczne/5f44ecc5fdc11efe979cc7f75a72813f.png"></div></div></section><section data-id="18830b3244815a8821959cf10eee83b5"><div class="sl-block" data-block-type="text" data-name="text-8e400c" data-block-id="de7e5c1d9d315cfe2423fd4366ef292a" style="height: auto; width: 960px; left: 0px; top: 121.5px;"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" data-has-custom-html="" style="z-index: 10;">
+<h2>Synchronizing Timer</h2>
+
+<p> </p>
+
+<p>Odpowiada za jednoczesne uruchomienie wybranej liczby wątków powodując duże obciążenie w jednym momencie. Blokuje wątki dopóki X wątków nie zostanie zablokowanych. Następnie są one uruchamiane jednocześnie.</p>
+</div></div>
+<div class="sl-block" data-block-type="image" style="width: 594.756px; height: 210.763px; left: 182.622px; top: 431.119px; min-width: 1px; min-height: 1px;" data-name="image-37a031" data-block-id="af2ac73a8edeeeef43bd878d7684547e"><div class="sl-block-content" style="z-index: 11;"><img data-natural-width="412" data-natural-height="146" style="" data-lazy-loaded="" data-src="testy-wydajnosciowe-jmeter-prezentacja-4h-cwiczenia-praktyczne/f29042a26b06c89b251e6292131fcb80.png"></div></div></section></section><section data-id="9d15c52bfc212ab9114a36476654ce54"><div class="sl-block" data-block-type="text" data-name="text-c71595" data-block-id="238b90f4a8e1832ab44ff13b0904456a" style="height: auto; width: 937px; left: 11.5px; top: 180px;"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" data-has-custom-html="">
+<h2>Ćwiczenie 5</h2>
+
+<p style="text-align: left;">Do przygotowanego wcześniej skryptu dodanie odstępów między żądaniami symulujących rzeczywistego użytkownika. Porównanie czasu trwania testu z i bez odstępów.</p>
+
+<p style="text-align: left;"> </p>
+
+<p style="text-align: left;">Czy czasy odpowiedzi były podobne z i bez odstępów?</p>
+</div></div></section><section data-id="d14bd87ba460e25421617140810f7d4b" class="stack"><section data-id="79747653d22aff994e553759f4611308"><div class="sl-block" data-block-type="text" data-name="text-8af59e" data-block-id="3443730b63010fd3298471e6031fee79" style="height: auto; width: 960px; left: 0px; top: 280px;"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" data-has-custom-html="">
+<h1>Uruchomienie z linii poleceń i raportowanie</h1>
+</div></div></section><section data-id="aeb4b75b71e4350fa9fdb11a574662da"><div class="sl-block" data-block-type="text" data-name="text-c922f4" data-block-id="80c53f141f14e923f82faa301c3331ce" style="height: auto; width: 960px; left: 0px; top: 60px;"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" data-has-custom-html="" style="z-index: 10;">
+<h2>Raport HTML</h2>
+
+<p> </p>
+
+<p>JMeter umożliwia generowanie raportu HTML podczas testów wykonywanych z linii poleceń. Raport zawiera liczne wykresy i statystyki.</p>
+</div></div>
+<div class="sl-block" data-block-type="image" style="width: 553.17px; height: 332.037px; left: 203.415px; top: 323.981px; min-width: 1px; min-height: 1px;" data-name="image-e9e0f0" data-block-id="b7a71eb13f3ccfd0e403c8a86b38d4f7"><div class="sl-block-content" style="z-index: 11;"><img data-natural-width="1636" data-natural-height="982" style="" data-lazy-loaded="" data-src="testy-wydajnosciowe-jmeter-prezentacja-4h-cwiczenia-praktyczne/fd5665624ee2e173ab0b569877a24406.png"></div></div></section><section data-id="a59c8cf14cc26f8e7ac0ad29e172e42d"><div class="sl-block" data-block-type="text" data-name="text-218dcb" data-block-id="9a46eeddf92bc68f6cc1f594bca29d3b" style="height: auto; width: 960px; left: 0px; top: 76px;"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" data-has-custom-html="" style="z-index: 10;">
+<h2>Tryb konsolowy</h2>
+
+<p> </p>
+
+<p>Wywołanie z linii poleceń ma postać:</p>
+
+<p> </p>
+
+<p> </p>
+
+<p>gdzie flagi oznaczają odpowiednio:</p>
+
+<ul>
+	<li>
+	<p>n - wywołanie w trybie non-gui,</p>
+	</li>
+	<li>
+	<p>t - nazwa pliku jmx z planem testu,</p>
+	</li>
+	<li>
+	<p>l - nazwa pliku jtl do zapisu logów.</p>
+	</li>
+	<li>
+	<p>e - raport generowany po teście wydajnościowym.</p>
+	</li>
+	<li>
+	<p>o - ścieżka do pliku z raportem.</p>
+	</li>
+</ul>
+</div></div>
+<div class="sl-block" data-block-type="code" data-name="code-ac43d8" data-block-id="c99bb983bc164c87a913aaafb02cc150" style="width: 833px; height: 75px; left: 57.5px; top: 265px;"><div class="sl-block-content notranslate" data-highlight-theme="monokai" data-code-frame="none" style="z-index: 11;" data-code-wrap="true"><pre class="bash" style="font-size: 24px; line-height: 29px;"><code data-line-numbers="">jmeter -n -t test.jmx -l log_test.jtl -e -o C:\Users\test\Documents\apache-jmeter-5.0\bin\report</code></pre></div></div></section><section data-id="cf18bd36f0853567d2371bd24a5f6dca"><div class="sl-block" data-block-type="text" data-name="text-0a6f4c" data-block-id="9653e73f58d8865d0b3f6b777ccd96e4" style="height: auto; width: 960px; left: 0px; top: 70px;"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" data-has-custom-html="" style="z-index: 10;">
+<h2>APDEX</h2>
+
+<p><i>The Apdex (Application Performance Index) formula is the number of satisfied samples plus half of the tolerating samples plus none of the frustrated samples, divided by all the samples.</i></p>
+</div></div>
+<div class="sl-block" data-block-type="image" data-name="image-3e78a5" data-block-id="2e254fb348bcbb67fe372c6ed7118bfc" style="width: 296.784px; height: 72.796px; left: 50.548px; top: 320px; min-width: 1px; min-height: 1px;"><div class="sl-block-content" style="z-index: 11;"><img data-natural-width="212" data-natural-height="52" style="" data-lazy-loaded="" data-src="testy-wydajnosciowe-jmeter-prezentacja-4h-cwiczenia-praktyczne/30a26f771aae6d618d124c837fadd217.png"></div></div>
+<div class="sl-block" data-block-type="table" data-name="table-c40512" data-block-id="ec82740406ec2acbb3627aef9ca66ccb" style="height: auto; min-width: 120px; width: 490px; left: 429px; top: 300px;"><div class="sl-block-content" style="z-index: 12;" data-table-cols="2" data-table-rows="4"><table><tbody>
+<tr>
+<th>liczba żądań</th>
+<th>czas odpowiedzi</th>
+</tr>
+<tr>
+<td>60</td>
+<td>poniżej 3s</td>
+</tr>
+<tr>
+<td>30</td>
+<td>3 - 12s</td>
+</tr>
+<tr>
+<td>10</td>
+<td>powyżej 12s</td>
+</tr>
+</tbody></table></div></div>
+<div class="sl-block" data-block-type="text" data-name="text-71e627" data-block-id="5e77fe57e8d8af8ec7d09896187a13c2" style="height: auto; width: 946px; left: 7px; top: 581.5px;"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 13;">
+<p>Wymaganie na czas odpowiedzi poniżej 3s, czas tolerowany przyjmuje się jako 4*3s = 12s</p>
+</div></div>
+<div class="sl-block" data-block-type="image" data-name="image-c24798" data-block-id="a66ec25a5260b1eb3c6f59abe7eb3f1f" style="width: 349.452px; height: 61.18px; left: 50.548px; top: 428.82px; min-width: 1px; min-height: 1px;"><div class="sl-block-content" style="z-index: 14;"><img style="" data-natural-width="337" data-natural-height="59" data-lazy-loaded="" data-src="testy-wydajnosciowe-jmeter-prezentacja-4h-cwiczenia-praktyczne/3073af5f10dfe29089225e7612fc3b6e.png"></div></div></section></section><section data-id="4b58845f9ade790e861d909f50bd06bd"><div class="sl-block" data-block-type="text" data-name="text-e70ecd" data-block-id="e8d17e5180a414a9cf2b13fc94e2bcb1" style="height: auto; width: 941px; left: 19px; top: 249px;"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" data-has-custom-html="">
+<h2>Ćwiczenie 6</h2>
+
+<p style="text-align: left;">Uruchomienie przygotowanego wcześniej skryptu z poziomu linii poleceń i wygenerowanie raportu HTML. Analiza raportu i porównanie wykresów z wykresami w GUI.</p>
+</div></div></section><section data-id="dad94c2c563fec4b962896104e5268c4" class="stack"><section data-id="82cf4b18aaed544469d3570fe72e7901"><div class="sl-block" data-block-type="text" data-name="text-20a210" data-block-id="1aed80e226bb2d4f235e56c1bf224f78" style="height: auto; width: 960px; left: 0px; top: 191px;"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" data-has-custom-html="">
+<h1>Distributed Testing - Testy z wykorzystaniem kilku maszyn</h1>
+</div></div></section><section data-id="f2feec3aed420e7b4c576a9b69a4aa76"><div class="sl-block" data-block-type="text" data-name="text-41c230" data-block-id="b7dbe5440c65b63ca41cf1d5ad4c5501" style="height: auto; width: 960px; left: 0px; top: 144px;"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" data-has-custom-html="">
+						<h2>Distributed Testing</h2>
+						<p style="text-align: left;">Podczas testów wykorzystywane są maszyny, które mogą pełnić dwa rodzaje funkcji: master i slave.</p>
+						<ul>
+							<li class="fragment" data-fragment-index="0"><p>Master - kontroluje wykonywanie testu, jest to jedna maszyna, która komunikuje się z pozostałymi maszynami i kontroluje wykonywanie przez nie testów. Maszyna ta sama nie generuje ruchu.</p></li>
+							<li class="fragment" data-fragment-index="1"><p>Slave -system na którym wykonywany jest skrypt jmeter-server, maszyna generująca ruch i obciążająca testowany serwer.</p></li>
+						</ul>
+					</div></div></section><section data-id="a68f7c3c516cca2aeabccf3743f41215"><div class="sl-block" data-block-type="text" data-name="text-41c230" style="height: auto; width: 960px; left: 0px; top: 144px;" data-block-id="16cf33b49fd93f74cc8b486de708e672"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" data-has-custom-html="" style="z-index: 10;">
+<h2>Distributed Testing - Wymagania</h2>
+
+<p style="text-align: left;"> </p>
+
+<ul>
+	<li>
+<span style='color: rgb(0, 0, 0); font-family: "Open Sans", Helvetica, sans-serif;  font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; text-align: left;'>Wyłączony f</span>irewall,</li>
+	<li>Wszystkie maszyny znajdują się w tej samej podsieci (IP 192.x.x.x lub 10.x.x.x),</li>
+	<li>Przepływy (dostęp sieciowy) między maszynami,</li>
+	<li>Ta sama wersja JMetera na wszystkich maszynach.</li>
+</ul>
+
+<p> </p>
+
+<p>Więcej informacji - <a href="https://jmeter.apache.org/usermanual/jmeter_distributed_testing_step_by_step.pdf" target="_blank">https://jmeter.apache.org/usermanual/jmeter_distributed_testing_step_by_step.pdf</a></p>
+</div></div></section><section data-id="2631e3bc6af24f158144cdea19c24739"><div class="sl-block" data-block-type="text" data-name="text-3436eb" data-block-id="b39ad8f5caaebaa36b5f567127679888" style="height: auto; width: 960px; left: 0px; top: 116px;">
+<div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" data-has-custom-html="" style="z-index: 10;">
+<h2>
+<span id="cke_bm_5400S" style="display: none;"> </span>Distributed Testing<span id="cke_bm_5400E" style="display: none;"> </span>
+</h2>
+</div>
+<p></p>
+</div>
+<div class="sl-block" data-block-type="image" style="width: 586.157px; height: 351.306px; left: 186.921px; top: 244.347px; min-width: 1px; min-height: 1px;" data-name="image-ee02c1" data-block-id="8e8ec17d309e606b5d57f175c209b8fb"><div class="sl-block-content" style="z-index: 11;"><img data-natural-width="302" data-natural-height="181" style="" data-lazy-loaded="" data-src="testy-wydajnosciowe-jmeter-prezentacja-4h-cwiczenia-praktyczne/3618fe00adf0e13da73df082ea8426cf.svg"></div></div></section><section data-id="263d5b467d21cd5313556c3de8de86fe"><div class="sl-block" data-block-type="text" data-name="text-503f81" data-block-id="7e69b308911597212a780812b340a5db" style="height: auto; width: 960px; left: 0px; top: 159.5px;"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" data-has-custom-html="">
+<h2>Certyfikat</h2>
+
+<p> </p>
+
+<p>Przed rozpoczęciem testu należy wygenerować certyfikaty i umieścić je w folderze bin na każdej z maszyn wykorzystywanych podczas testów.</p>
+
+<p> </p>
+
+<p>Certyfikaty należy wygenerować za pomocą skryptu bin\create-rmi-keystore.bat.</p>
+</div></div></section><section data-id="9d416a82472fdb54551c558c3cb4b09e"><div class="sl-block" data-block-type="text" data-name="text-076c56" data-block-id="acbc3851ca526a1e3f2881f4d0833e35" style="height: auto; width: 960px; left: 0px; top: 55px;"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" data-has-custom-html="" style="z-index: 10;">
+<h2>Distributed Testing</h2>
+
+<p> </p>
+
+<ul>
+	<li class="fragment" data-fragment-index="0">
+	<p>Na maszynie Master w pliku jmeter.properties podać adresy IP maszyn Slave.</p>
+	</li>
+	<li class="fragment" data-fragment-index="1">
+	<p>Na każdej z maszyn Slave uruchomić skrypt jmeter-server.</p>
+	</li>
+	<li class="fragment" data-fragment-index="2">
+	<p>Na maszynie Master uruchomić JMeter w trybie graficznym za pomocą pliku jmeter.bat, a następnie z menu wybrać Run -&gt; Remote Start lub Remote Start All.</p>
+	</li>
+</ul>
+</div></div>
+<div class="sl-block" data-block-type="image" data-name="image-7410bf" data-block-id="d461a161f05ff1808ee390a082683e56" style="width: 806.4px; height: 197.782px; left: 100.8px; top: 461.109px; min-width: 1px; min-height: 1px;"><div class="sl-block-content fragment" style="z-index: 11;" data-fragment-index="3"><img style="" data-natural-width="1056" data-natural-height="259" data-lazy-loaded="" data-src="testy-wydajnosciowe-jmeter-prezentacja-4h-cwiczenia-praktyczne/f48bddc1d68aed4d44c8c76950eeaf73.png"></div></div></section><section data-id="7c394afc76453bcc079131b3482c4856"><div class="sl-block" data-block-type="text" data-name="text-f12030" data-block-id="4f5f8c02d71d22e4a0dd05d73ec75a96" style="height: auto; width: 960px; left: 0px; top: 140px;"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" data-has-custom-html="" style="z-index: 10;">
+<h2>Distributed Testing - Tryb konsolowy</h2>
+
+<p> </p>
+
+<p>Wywołanie z linii poleceń ma postać:</p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p>Więcej informacji: <a href="https://jmeter.apache.org/usermanual/remote-test.html" target="_blank">https://jmeter.apache.org/usermanual/remote-test.html</a></p>
+</div></div>
+<div class="sl-block" data-block-type="code" data-name="code-ab09c2" data-block-id="f44c3a12591a448a9a346d1bec82d5de" style="width: 687px; height: 54px; left: 136.5px; top: 420px;"><div class="sl-block-content notranslate" data-highlight-theme="monokai" data-code-frame="none" style="z-index: 11;"><pre class="bash" style="font-size: 24px; line-height: 29px;"><code data-line-numbers="">jmeter -n -t script.jmx -R server1,server2,…</code></pre></div></div></section></section><section data-id="39af844f9b0aa837b6cb6a03c32cbc08" class="stack"><section data-id="033dca1e36a8e4508ab0b00743ee2a91"><div class="sl-block" data-block-type="text" data-name="text-31f0b6" data-block-id="17d64adec48169114a9fe3fd07f3620e" style="height: auto; width: 960px; left: 0px; top: 264px;"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" data-has-custom-html="">
+<h1>Monitorowanie zużycia zasobów</h1>
+</div></div></section><section data-id="ff93a803bab964b9d3231c94264c4c45"><div class="sl-block" data-block-type="text" data-name="text-90c3d7" data-block-id="793630c17e696f6701039eaf4599641d" style="height: auto; width: 960px; left: 0px; top: 224px;"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" data-has-custom-html="">
+<h2>PerfMon - Server</h2>
+
+<p> </p>
+
+<p>Aby zainstalować wtyczkę PerfMon Server Agent należy np. poprzez pulpit zdalny połączyć się z serwerem, a następnie pobrać plik zip z wtyczką (<a href="http://jmeter-plugins.org/wiki/PerfMonAgent/" target="_blank">http://jmeter-plugins.org/wiki/PerfMonAgent/</a>), rozpakować i uruchomić plik ServerAgent.</p>
+</div></div></section><section data-id="25eb71a05c1c453286f3fd7727ffe2fc"><div class="sl-block" data-block-type="text" data-name="text-0434e2" data-block-id="ce6bcf1489cdfd580c35769a59c57714" style="height: auto; width: 960px; left: 0px; top: 265px;"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" data-has-custom-html="">
+<h2>PerfMon - JMeter</h2>
+
+<p> </p>
+
+<p>Po stronie stacji testowej i JMetera należy zainstalować plugin PerfMon (Servers Performance Monitoring).</p>
+</div></div></section><section data-id="230ceaa71df8c2ee043b798cf2a99685"><div class="sl-block" data-block-type="text" data-name="text-f8979b" data-block-id="ded94e670288632cfbe89a9f936ea411" style="height: auto; width: 960px; left: 0px; top: 116px;">
+<div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" data-has-custom-html="" style="z-index: 10;">
+<h2>
+<span id="cke_bm_5902S" style="display: none;"> </span>PerfMon<span id="cke_bm_5902E" style="display: none;"> </span>
+</h2>
+</div>
+<p></p>
+</div>
+<div class="sl-block" data-block-type="image" data-name="image-f9eb45" data-block-id="52f2fb5af0ee8a92df3ad19d3f55b9e8" style="width: 554.015px; height: 429px; left: 202.993px; top: 227px;"><div class="sl-block-content" style="z-index: 11;"><img style="" data-natural-width="842" data-natural-height="652" data-lazy-loaded="" data-src="testy-wydajnosciowe-jmeter-prezentacja-4h-cwiczenia-praktyczne/ed6d60c9765cda98944caf05f0d46f40.png"></div></div></section></section><section class="stack" data-id="bec8ed2dc7b090aea53de525d67384e8"><section data-id="00e0cb37a27952bb532b1fc77a8c0e9a"><div class="sl-block" data-block-type="text" data-name="text-35d737" data-block-id="455d7c30b6b14129d85c4079b88caf04" style="height: auto; width: 960px; left: 0px; top: 325px;"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" data-has-custom-html="">
+<h1>Dodatkowe informacje</h1>
+</div></div></section><section data-id="17412dee2fa85b5579ce7eaaff248363"><div class="sl-block" data-block-type="text" style="width: 806px; left: 77px; top: 90px; height: auto;" data-block-id="898a896992caea911cef43aafc51183e"><div class="sl-block-content" data-placeholder-tag="h2" data-placeholder-text="Title Text" style="z-index: 10;">
+<h2>Skrypty Groovy</h2>
+</div></div>
+<div class="sl-block" data-block-type="image" data-name="image-e940ca" data-block-id="0c5ece31ac567f36db67f10a582ea829" style="width: 745.527px; height: 416.406px; left: 107.236px; top: 203.797px;"><div class="sl-block-content" style="z-index: 11;"><img data-natural-width="931" data-natural-height="520" style="" data-src="testy-wydajnosciowe-jmeter-prezentacja-4h-cwiczenia-praktyczne/7f644f68341e516078721b73aa04c67b.png"></div></div></section><section data-id="07ae55aac9547d2b324de629c02030c3"><div class="sl-block" data-block-type="text" style="width: 806px; left: 77px; top: 40px; height: auto;" data-block-id="574f7b3e9de2797bdf3175d9f7de3ae2"><div class="sl-block-content" data-placeholder-tag="h2" data-placeholder-text="Title Text" style="z-index: 10;">
+<h2>Skrypty Groovy</h2>
+</div></div>
+<div class="sl-block" data-block-type="image" data-name="image-602e47" data-block-id="fd57e1d919eca50bd85ad037cea01ab2" style="width: 526.44px; height: 518px; left: 216.78px; top: 161px; min-width: 1px; min-height: 1px;"><div class="sl-block-content" style="z-index: 11;"><img style="" data-natural-width="499" data-natural-height="491" data-lazy-loaded="" data-src="testy-wydajnosciowe-jmeter-prezentacja-4h-cwiczenia-praktyczne/dd8d17019870abc6fdd1eaa0d847d86f.png"></div></div></section><section data-id="a24551c5f7dd6e5a290fe4aaae66b25d"><div class="sl-block" data-block-type="text" style="width: 451px; left: 55px; top: 40px; height: auto;" data-block-id="9c428f7293edc39244ba46a89c2a0667"><div class="sl-block-content" data-placeholder-tag="h2" data-placeholder-text="Title Text" style="text-align: left; z-index: 10;">
+<h2>Skrypty python w JSR223 Sampler</h2>
+</div></div>
+<div class="sl-block" data-block-type="text" style="width: 825px; left: 67.5px; top: 560px; height: auto;" data-block-id="df54f971d1b88fd6d0eead754d020b57"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi nec metus justo. Aliquam erat volutpat." style="z-index: 11; text-align: left;">
+<p>Pobranie jypthon standalone i dodanie do katalogu /lib</p>
+</div></div>
+<div class="sl-block" data-block-type="image" data-name="image-2814be" data-block-id="165ceabeafe190c0017b7155ffbf5aa2" style="width: 554.111px; height: 364.148px; left: 372px; top: 140px; min-width: 1px; min-height: 1px;"><div class="sl-block-content" style="z-index: 12;"><img data-natural-width="878" data-natural-height="577" style="" data-lazy-loaded="" data-src="testy-wydajnosciowe-jmeter-prezentacja-4h-cwiczenia-praktyczne/0358ef0eee910f15cfebac8ef90664b3.png"></div></div></section><section data-id="c7f9d5920d2b9464a0fadf312fa8d2ff"><div class="sl-block" data-block-type="text" style="width: 857px; left: 51.5px; top: 62px; height: auto;" data-block-id="803c9fd179c246cab8c63900432edab3"><div class="sl-block-content" data-placeholder-tag="h2" data-placeholder-text="Title Text" style="text-align: left; z-index: 10;">
+<h2 style="text-align: center;">Instalowanie dodatkowych pakietów Python</h2>
+</div></div>
+<div class="sl-block" data-block-type="text" style="width: 825px; left: 67.5px; top: 335px; height: auto;" data-block-id="58e475959e3a92df1c25c4a3f89ccc15"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi nec metus justo. Aliquam erat volutpat." style="z-index: 11; text-align: left;">
+<p>P<span style="color:rgb(0, 0, 0)">obranie przykładowej biblioteki xlrd:</span></p>
+
+<ul>
+	<li>java -jar jython-standalone-2.7.2.jar -m ensurepip</li>
+	<li>java -jar jython-standalone-2.7.2.jar -m pip install xlrd</li>
+</ul>
+</div></div>
+</section><section data-id="8285cd0fbd67d4ee00db99d0e2b18dd0"><div class="sl-block" data-block-type="text" data-name="text-d78ed0" data-block-id="1b2e4bad4900e5a57da9682d4d7e3bd4" style="height: auto; width: 960px; left: 0px; top: 217.5px;"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" data-has-custom-html="">
+<h2>Zwiększenie zasobów przydzielonej pamięci</h2>
+
+<p> </p>
+
+<p><span style='color: rgb(0, 0, 0); font-family: "Open Sans", Helvetica, sans-serif;  font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400;'>Aby zwiększyć maksymalny rozmiar stosu należy znaleźć następującą linię w skrypcie startowym JMetera: HEAP="-Xms1g -Xmx1g" i zmienić odpowiednio wartość –Xmx, np. po zmianie na 4GB linia będzie miała postać HEAP="-Xms1g -Xmx4096m".</span></p>
+</div></div></section><section data-id="a5ef95533085ded911b3922a40f8ac24"><div class="sl-block" data-block-type="text" style="width: 806px; left: 77px; top: 42px; height: auto;" data-block-id="8109c9711436ee5da174631df6297672"><div class="sl-block-content" data-placeholder-tag="h2" data-placeholder-text="Title Text" style="z-index: 10;">
+<table style="color:rgb(51, 51, 51); text-align:start">
+	<tbody>
+		<tr>
+			<td>
+			<h2 style="color:inherit"><span style="color:#000000">Ultimate Thread Group</span></h2>
+			</td>
+		</tr>
+	</tbody>
+</table>
+</div></div>
+<div class="sl-block" data-block-type="image" data-name="image-6880f4" data-block-id="3495d52fe10a02c6025c604ee7f83b44" style="width: 628.196px; height: 518px; left: 165.902px; top: 147px; min-width: 1px; min-height: 1px;"><div class="sl-block-content" style="z-index: 11;"><img style="" data-natural-width="781" data-natural-height="644" data-lazy-loaded="" data-src="testy-wydajnosciowe-jmeter-prezentacja-4h-cwiczenia-praktyczne/57fabb254d8f014c5097655affa3fae4.png"></div></div></section></section><section class="stack" data-id="7dd404f3e09f9ea97c2e7a9b723f785f"><section data-id="1d4483a1187509397be07cfa6cf90d0d"><div class="sl-block" data-block-type="text" data-name="text-35d737" style="height: auto; width: 960px; left: 0px; top: 253px;" data-block-id="d302e19cd1c4683e666db20a37b71152"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" data-has-custom-html="" style="z-index: 10;">
+<h1>Wskazówki dotyczące wydajności</h1>
+</div></div></section><section data-id="1f08ff04e4c9296f245e5e81132e78d5"><div class="sl-block" data-block-type="text" data-name="text-0724e5" data-block-id="a0b21b2b7b9430b992b362893090f20f" style="height: auto; width: 835px; left: 62.5px; top: 97px;">
+    <div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 10;">
+<ul>
+	<li style="text-align:left">Cachowanie zasobów zewnętrznych takich jak pliki js, css, images, favicon, font
+	<ul>
+		<li style="text-align:left">Gdzie możliwe jest cachowanie, należy je stosować.</li>
+		<li style="text-align:left">Ze względów bezpieczeństwa nie mogą być cachowane odpowiedzi zawierające dane wrażliwe.</li>
+	</ul>
+	</li>
+	<li style="text-align:left">Żądania pobrania ogólnodostępnych plików css, js, elementów graficznych strony nie powinny być przesyłane z plikami cookie.</li>
+	<li style="text-align:left">
+	<p>Tam gdzie to możliwe pobieranie zasobów z CDN (Content Delivery Network).</p>
+	</li>
+	<li style="text-align:left">
+	<p><span>Kompresja plików z wykorzystaniem gzip.</span></p>
+	</li>
+</ul>
+
+<p> </p>
+</div>
+</div></section><section data-id="0d063c255ca77c124becc21509d0b110"><div class="sl-block" data-block-type="text" data-name="text-0724e5" style="height: auto; width: 835px; left: 62.5px; top: 131.5px;" data-block-id="96df340cf943ffcb826af51d99b129f9">
+    <div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 10;">
+<ul>
+	<li style="text-align:left">Zmniejszenie rozmiaru plików JavaScript i CSS poprzez usuwanie niepotrzebnych znaków z kodu w celu zmniejszenia jej rozmiaru, poprawiając tym samym czas ładowania, usuwanie komentarzy a także niepotrzebnych białych znaków (spacja, znak nowej linii i tabulator).</li>
+	<li style="text-align:left"><span>Skalowanie obrazów umieszczanych w HTML - przesyłanie odpowiednio zmniejszonych obrazów.</span></li>
+	<li style="text-align:left"><span>Umieszczanie skryptów JavaScript na końcu strony, aby nie blokować renderowania strony.</span></li>
+</ul>
+
+<p> </p>
+</div>
+</div></section></section><section data-id="afbd750088bd20c94f87b316db166d60"><div class="sl-block" data-block-type="text" data-name="text-e70ecd" style="height: auto; width: 941px; left: 19px; top: 210px;" data-block-id="38a533d3b12a56cd20a52d817ddac508"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" data-has-custom-html="" style="z-index: 10;">
+<h2>Ćwiczenie 7</h2>
+
+<p style="text-align: left;">Wykorzystanie pythona w JMeterze:</p>
+
+<ul>
+	<li style="text-align: left;">Pobranie jython-standalone - <a href="https://www.jython.org/download.html" target="_blank">https://www.jython.org/download.html</a>
+</li>
+	<li style="text-align: left;"><span style='color: rgb(0, 0, 0); font-family: "Open Sans", Helvetica, sans-serif;  font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; text-align: left;'>Dodanie do katalogu /lib</span></li>
+	<li style="text-align: left;"><span style='color: rgb(0, 0, 0); font-family: "Open Sans", Helvetica, sans-serif;  font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; text-align: left;'>Restart JMetera</span></li>
+	<li style="text-align: left;"><span style='color: rgb(0, 0, 0); font-family: "Open Sans", Helvetica, sans-serif;  font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; text-align: left;'>Dodanie elementu Sampler -&gt; JSR223 Sampler</span></li>
+</ul>
+</div></div></section><section class="stack" data-id="fc625a68bbee176d7628f1a3b698ffc5"><section data-id="fc8869236e5160ce56269ef730614479"><div class="sl-block" data-block-type="text" data-name="text-35d737" style="height: auto; width: 960px; left: 0px; top: 325px;" data-block-id="a0db1e3a92d2c987f3aec382c569c9af"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" data-has-custom-html="" style="z-index: 10;">
+<h1>Funkcje</h1>
+</div></div></section><section data-id="551ed43616c489aa0167280cbf19bf12"><div class="sl-block" data-block-type="image" data-name="image-b3bbb4" style="width: 656.168px; height: 388.725px; left: 151.916px; top: 140px; min-width: 1px; min-height: 1px;" data-block-id="f57b954ca7ac356e1a3752edfcc857cf"><div class="sl-block-content" style="z-index: 10;"><img style="" data-natural-width="844" data-natural-height="500" data-lazy-loaded="" data-src="testy-wydajnosciowe-jmeter-prezentacja-4h-cwiczenia-praktyczne/615b345a9b8945deec50d9273cb28a15.png"></div></div>
+<div class="sl-block" data-block-type="text" data-name="text-256a10" data-block-id="589e412f5f60aa69b1adc3645813bd24" style="height: auto; width: 600px; left: 180px; top: 70px;"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 11;">
+<p>${__functionName(var1,var2,var3)}</p>
+</div></div>
+<div class="sl-block" data-block-type="text" data-name="text-c3ba4f" data-block-id="4cd8807ad251a0b2c51ed9f54d28a2e7" style="height: auto; width: 905px; left: 27.5px; top: 534.725px;"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 12;">
+<p><span style="color:rgb(0, 0, 0); font-size:medium; text-align:start">Using the Function Helper, you can select a function from the pull down, and assign values for its arguments. The left column in the table provides a brief description of the argument, and the right column is where you write in the value for that argument. Different functions take different arguments.</span></p>
+</div></div></section></section><section class="stack" data-id="2a6f723824eb2820b622396ebfd3ed0b"><section data-id="b182366871cd9ca64d14c77d1556b62c"><div class="sl-block" data-block-type="text" data-name="text-35d737" style="height: auto; width: 960px; left: 0px; top: 253px;" data-block-id="3d59afcd76d3d0266dbfbfe4f1244272"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" data-has-custom-html="" style="z-index: 10;">
+<h1>Inne narzędzia do testów wydajnościowych</h1>
+</div></div></section><section data-id="c442f694b4a20fe3938355f1c0f01c78"><div class="sl-block" data-block-type="text" style="width: 806px; left: 61px; top: 140px; height: auto;" data-block-id="93bbca48cc88d27267aa22819f5f99fa"><div class="sl-block-content" data-placeholder-tag="h2" data-placeholder-text="Title Text" style="z-index: 10;">
+<h2>Locust</h2>
+</div></div>
+<div class="sl-block" data-block-type="text" style="width: 806px; left: 77px; top: 263px; height: auto;" data-block-id="e5b6bb2a049833fcd683c7d0c7fc28fc"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 11;">
+<ul>
+	<li class="fragment" data-fragment-index="0">Skrypty wydajnościowe są pisane w Pythonie</li>
+	<li class="fragment" data-fragment-index="1">Pozwala zasymulować obciążenie znacznie większa liczbą użytkowników niż JMeter (inne podejście do obciążenia), dostępna również opcja obciążenia z wielu maszyn (<span style="text-align:start">load tests distributed over multiple machines)</span>
+</li>
+	<li class="fragment" data-fragment-index="2">Aktualne wyniki testu widoczne w interfejsie webowym.</li>
+	<li class="fragment" data-fragment-index="3"><span style="color:rgb(64, 64, 64); text-align:start">Licencja MIT.</span></li>
+</ul>
+</div></div></section><section data-id="ea53203940455d01acc4213ef028d91b"><div class="sl-block" data-block-type="text" style="width: 806px; left: 61px; top: 40px; height: auto;" data-block-id="8b2e446ff841aab92641c1223f6a34bc"><div class="sl-block-content" data-placeholder-tag="h2" data-placeholder-text="Title Text" style="z-index: 10;">
+<h2>Wydajność Locust vs JMeter</h2>
+</div></div>
+<div class="sl-block" data-block-type="image" data-name="image-b33f59" data-block-id="ded313d3502ef0e58d1257da889c48bc" style="width: 723.2px; height: 320.997px; left: 24px; top: 140px; min-width: 1px; min-height: 1px;"><div class="sl-block-content fragment" style="z-index: 11;" data-fragment-index="0"><img style="" data-natural-width="944" data-natural-height="419" data-lazy-loaded="" data-src="testy-wydajnosciowe-jmeter-prezentacja-4h-cwiczenia-praktyczne/8c41117e011b4039db77f71cb4d501cc.png"></div></div>
+<div class="sl-block" data-block-type="image" data-name="image-2d296d" data-block-id="5257cead632d5e2dbc97db2c9d78b517" style="width: 723.2px; height: 287.288px; left: 198.4px; top: 350px; min-width: 1px; min-height: 1px;"><div class="sl-block-content fragment" style="z-index: 12;" data-fragment-index="1"><img style="" data-natural-width="944" data-natural-height="375" data-lazy-loaded="" data-src="testy-wydajnosciowe-jmeter-prezentacja-4h-cwiczenia-praktyczne/39a26c5529614f3fe4c8df24f13a79a0.png"></div></div>
+<div class="sl-block" data-block-type="text" data-name="text-8ffa45" data-block-id="7187aed7643c5162c127fbd41b64fc0d" style="height: auto; width: 881.6px; left: 39.2px; top: 645.5px;"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 13;">
+<p><span style="font-size:0.7em"><a href="https://www.blazemeter.com/blog/jmeter-vs-locust-which-one-should-you-choose" target="_blank">https://www.blazemeter.com/blog/jmeter-vs-locust-which-one-should-you-choose</a></span></p>
+</div></div></section><section data-id="d6f7c8717ae3d617e82e41f9d5f65a59"><div class="sl-block" data-block-type="text" style="width: 806px; left: 61px; top: 40px; height: auto;" data-block-id="29901f62f7a60336c09881018ffcaac7"><div class="sl-block-content" data-placeholder-tag="h2" data-placeholder-text="Title Text" style="z-index: 10;">
+<h2>Locust</h2>
+</div></div>
+<div class="sl-block" data-block-type="image" data-name="image-0a6641" data-block-id="064b48a8395b423eb06e4580fa40f632" style="width: 699.468px; height: 292.35px; left: 29.6905px; top: 158.996px; min-width: 1px; min-height: 1px;"><div class="sl-block-content fragment" style="z-index: 11;" data-fragment-index="0"><img style="" data-natural-width="1481" data-natural-height="619" data-lazy-loaded="" data-src="testy-wydajnosciowe-jmeter-prezentacja-4h-cwiczenia-praktyczne/1e996febf22b731dd2ed0ff7099b2fc2.png"></div></div>
+<div class="sl-block" data-block-type="image" data-name="image-84e144" data-block-id="ed38c531add67ee534e43cef8d7c7e99" style="width: 708.138px; height: 295.974px; left: 205.931px; top: 357.112px; min-width: 1px; min-height: 1px;"><div class="sl-block-content fragment" style="z-index: 12;" data-fragment-index="1"><img style="" data-natural-width="1481" data-natural-height="619" data-lazy-loaded="" data-src="testy-wydajnosciowe-jmeter-prezentacja-4h-cwiczenia-praktyczne/086c1c3247bed4bf6d70d4807c22653f.png"></div></div></section><section data-id="226a76f23cb8769679686d5bd43352c0"><div class="sl-block" data-block-type="text" style="width: 806px; left: 61px; top: 40px; height: auto;" data-block-id="ba672f55aa8c775e2e80f3ed36544b8d"><div class="sl-block-content" data-placeholder-tag="h2" data-placeholder-text="Title Text" style="z-index: 10;">
+<h2>Locust</h2>
+</div></div>
+<div class="sl-block" data-block-type="image" style="width: 806.4px; height: 194.88px; left: 61px; top: 182.56px; min-width: 1px; min-height: 1px;" data-name="image-c9ee51" data-block-id="326672c601711a317bca3578656a0769"><div class="sl-block-content fragment" style="z-index: 11;" data-fragment-index="0"><img data-natural-width="1440" data-natural-height="348" style="" data-lazy-loaded="" data-src="testy-wydajnosciowe-jmeter-prezentacja-4h-cwiczenia-praktyczne/665df6ac476dfa7975b01ba0566dc01b.png"></div></div>
+<div class="sl-block" data-block-type="image" style="width: 806.4px; height: 194.88px; left: 60.6px; top: 435.12px; min-width: 1px; min-height: 1px;" data-name="image-e9aa4c" data-block-id="240a10b813836bd1f87e9cb11e576386"><div class="sl-block-content fragment" style="z-index: 12;" data-fragment-index="1"><img style="" data-natural-width="1440" data-natural-height="348" data-lazy-loaded="" data-src="testy-wydajnosciowe-jmeter-prezentacja-4h-cwiczenia-praktyczne/6b5c392052945e3f436f2caf229ec536.png"></div></div></section></section><section data-background="pictures/browser-3614768_1280.png" data-background-size="1190px" data-state="dimbg" data-id="3a8117a0ded40befb994eaae4a29a4a0" data-background-image="pictures/browser-3614768_1280.png"><div class="sl-block" data-block-type="text" data-name="text-b76a79" data-block-id="cb186e9883ba5a5202391de5bc965b07" style="height: auto; width: 960px; left: 0px; top: 301.5px;"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" data-has-custom-html="">
+<h1>Dziękuję za uwagę</h1>
+</div></div></section>
+			</div>
+		</div>
+
+		<script>
+			var SLConfig = {"deck": {"id":1891140,"slug":"testy-wydajnosciowe-jmeter-prezentacja-4h-cwiczenia-praktyczne","title":"Testy wydajnościowe JMeter - prezentacja 4h (3 ćwiczenia praktyczne) - Stacja IT","description":"","width":960,"height":700,"margin":0.05,"visibility":"self","published_at":null,"sanitize_messages":null,"thumbnail_url":"https://s3.amazonaws.com/media-p.slid.es/thumbnails/7980857ccc6b0058f119cc4eff279126/thumb.jpg?1595444134","view_count":0,"user":{"id":1346125,"username":"cl10101","name":null,"description":null,"thumbnail_url":"https://www.gravatar.com/avatar/adbca95c3f45f02290972cb937eb4a6e?s=140\u0026d=https%3A%2F%2Fstatic.slid.es%2Fimages%2Fdefault-profile-picture.png","account_type":"lite","team_id":null,"settings":{"id":5548494,"present_controls":true,"present_upsizing":true,"present_pointer":false,"present_notes":true,"default_deck_tag_id":null}},"background_transition":"slide","transition":"slide","theme_id":null,"theme_font":"opensans","theme_color":"white-blue","auto_slide_interval":0,"comments_enabled":true,"forking_enabled":false,"rolling_links":false,"center":false,"shuffle":false,"should_loop":false,"share_notes":false,"slide_number":true,"slide_count":165,"rtl":false,"version":2,"collaborative":false,"deck_user_editor_limit":1,"data_updated_at":1602366181767,"font_typekit":null,"font_google":null,"time_limit":null,"navigation_mode":"default","upsizing_enabled":true,"notes":{"ce279e083ac2d24c32d3ba2bdf541f3b":"Timer #1 will apply to Requests Two, Three, and Four (notice how order is irrelevant for hierarchical elements). Assertion #1 will apply only to Request Three. Timer #2 will affect all the requests.\n ","aa04d2ec3b31aec6e1fdbfea738afd81":"Assertion #1 is applied only to Request One, while Assertion #2 is applied to Requests Two and Three.","1c2c186ccfefd7cbe7e41e552a84a4ab":" - Thread Group -\u003e Recording Controller\n - default HTTP Request settings \u003c- adresy zapisują nam się jako zmienne","ff93a803bab964b9d3231c94264c4c45":"Ważnym elementem wykonywania testów wydajnościowych jest analiza zużycia pamięci i procesora.\n\nW tym celu warto skorzystać z wtyczki automatyzującej pomiar zużycia pamięci i cpu.","2c6eaa669ed9711042fb8d4725a43413":"When you open a JMX which requires JMeter plugins not currently installed, a popup should appears and:\n\nList Required Plugins,\nShows Changes: show the files which will be downloaded and installed."}}};
+
+
+			// Use local fonts
+			SLConfig.fonts_url = 'lib/fonts/';
+		</script>
+
+		<script src="lib/reveal.js"></script>
+		<script src="lib/reveal-plugins.js"></script>
+		<script src="lib/offline.js"></script>
+
+		<!-- Initialize the presentation -->
+		<script>
+			Reveal.initialize({
+				width: 960,
+				height: 700,
+				margin: 0.05,
+				
+
+				hash: true,
+				controls: true,
+				progress: true,
+				mouseWheel: false,
+				showNotes: false,
+				slideNumber: true,
+				fragmentInURL: true,
+
+				autoSlide: 0,
+				autoSlideStoppable: true,
+
+				autoAnimateMatcher: SL.deck.AutoAnimate.matcher,
+
+				center: false,
+				shuffle: false,
+				loop: false,
+				rtl: false,
+				navigationMode: "default",
+
+				transition: "slide",
+				backgroundTransition: "slide",
+
+				highlight: {
+					escapeHTML: false
+				},
+
+				plugins: [ RevealZoom, RevealNotes, RevealMarkdown, RevealHighlight ]
+			});
+		</script>
+
+		
+
+	</body>
+</html>
